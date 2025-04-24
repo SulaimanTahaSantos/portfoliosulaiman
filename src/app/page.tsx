@@ -12,10 +12,34 @@ import Link from "next/link";
 import DotPattern from "@/app/components/DotPattern";
 import StairPattern from "@/app/components/StairPattern";
 import imagenPerfil from "@/app/images/IMG_6585.jpeg";
+import { useEffect, useState } from "react";
 
 
 
 export default function Home() {
+  const [cambioColor, setCambioColor] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const totalHeight = document.body.scrollHeight;
+
+      const triggerPoint = totalHeight - windowHeight - 200;
+
+      if (scrollY >= triggerPoint) {
+        setCambioColor(true);
+      } else {
+        setCambioColor(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -63,18 +87,18 @@ export default function Home() {
         </div>
 
         <div className="hidden lg:block relative w-2/5 bg-[#C5FF4A]">
-          <div className="absolute top-8 right-8">
+          <div className="fixed top-8 right-8">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <div className="fixed">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="text-[#4834C9]"
-                  >
-                    <Menu className="h-8 w-8 fixed" />
-                  </Button>
-                </div>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={`transition-colors duration-300 ${
+                    cambioColor ? "text-[#CCEF38]" : "text-[#4834C9]"
+                  }`}
+                >
+                  <Menu className="h-8 w-8" />
+                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-64 mr-4 bg-white rounded-none p-6 border-none shadow-lg">
                 <div className="flex justify-end mb-4">
@@ -235,9 +259,9 @@ export default function Home() {
             <p className="text-gray-700 text-lg leading-relaxed">
               En el diseño de aplicaciones JavaScript, y PHP, me gusta crear
               experiencias de usuario atractivas y funcionales. Me enfoco en
-              crear interfaces intuitivas y atractivas que mejoren la
-              usabilidad y la satisfacción del usuario. Siempre busco la
-              simplicidad y la elegancia en cada diseño.
+              crear interfaces intuitivas y atractivas que mejoren la usabilidad
+              y la satisfacción del usuario. Siempre busco la simplicidad y la
+              elegancia en cada diseño.
             </p>
           </div>
 
@@ -252,8 +276,11 @@ export default function Home() {
               Desarrollo
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              En el desarrollo de aplicaciones con JavaScript/React/Next y Typescript como front me encargo de crear aplicaciones web rápidas y eficientes. Utilizo las últimas
-              tecnologías y mejores prácticas para asegurar un rendimiento óptimo y una experiencia de usuario fluida. Me gusta trabajar con APIs RESTful
+              En el desarrollo de aplicaciones con JavaScript/React/Next y
+              Typescript como front me encargo de crear aplicaciones web rápidas
+              y eficientes. Utilizo las últimas tecnologías y mejores prácticas
+              para asegurar un rendimiento óptimo y una experiencia de usuario
+              fluida. Me gusta trabajar con APIs RESTful
             </p>
           </div>
 
@@ -265,6 +292,57 @@ export default function Home() {
             <DotPattern />
           </div>
         </section>
+      </div>
+
+      <div className="min-h-screen bg-[#4834c4] text-white">
+        <div className="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
+          <div className="space-y-8">
+            <h1 className="text-[#c1ff72] text-5xl md:text-6xl font-bold leading-tight">
+              Experiencia/Trayectoria
+            </h1>
+
+            <div className="space-y-6">
+              <p className="text-lg">
+                Mi trayectoria informatica comenzó como Técnico de Sistemas en
+                Centre FP Llefià, administrando redes Windows/Linux,
+                automatizando backups y documentando procesos críticos.
+              </p>
+
+              <p className="text-lg">
+                He creado soluciones digitales para organizaciones de distintos
+                sectores, desde la optimización de sistemas internos hasta
+                aplicaciones web completas, siempre con énfasis en rendimiento,
+                código limpio y accesibilidad.
+              </p>
+
+              <p className="text-lg">
+                Actualmente soy Full‑stack Developer en prácticas en SM
+                Sistemas Medioambientales, donde desarrollo y mantengo una
+                plataforma React + Symfony: migré estilos a Tailwind CSS,
+                rediseñé los flujos de autenticación y optimicé consultas para
+                mejorar la velocidad de SMNET.
+              </p>
+
+              <p className="text-lg">
+                Antes colaboré como Desarrollador Back‑end freelance en
+                Grupo Guaraní, reforzando un CRUD de facturación en PHP/MySQL y
+                generando PDFs bajo método Agile.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative hidden lg:block">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Image
+                src={imagenPerfil}
+                width={400}
+                height={400}
+                alt="Mi foto"
+                className="transform translate-x-10"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );
