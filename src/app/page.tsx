@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, MoveRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -212,7 +212,6 @@ export default function Home() {
           <div className="absolute bottom-8 right-8 w-4 h-4 border-2 border-[#4834C9]"></div>
         </div>
       </div>
-
       <div className="lg:hidden absolute top-8 right-8">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -249,7 +248,6 @@ export default function Home() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-
       <div className="min-h-screen bg-white">
         <section className="relative py-32 px-4 container mx-auto">
           <div className="max-w-2xl ml-12 md:ml-24">
@@ -293,7 +291,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-
       <div className="min-h-screen bg-[#4834c4] text-white">
         <div className="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
           <div className="space-y-8">
@@ -340,6 +337,60 @@ export default function Home() {
                 alt="Mi foto"
                 className="transform translate-x-10"
               />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="min-h-screen flex flex-col">
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="container mx-auto max-w-4xl px-4">
+            <div className="grid md:grid-cols-2 gap-8 border-t border-gray-100 pt-8">
+              <div className="space-y-6 md:border-r border-gray-100 pr-8">
+                <h1 className="text-4xl md:text-5xl font-bold text-purple-600">
+                  Proyectos
+                </h1>
+                <p className="text-gray-700 text-lg">
+                  He trabajado en varios proyectos, tanto personales como
+                  profesionales. Algunos de ellos son: El Uno, Tetris, PearOS
+                  (un CRUD), Gestión de incidencias, y SMNET, un sistema
+                  desarrollado para la empresa en la que trabajé.
+                </p>
+                <Button
+                  variant="outline"
+                  className="border-purple-600 text-purple-600 hover:bg-purple-50 hover:text-purple-700 rounded-none px-6 py-6 h-auto"
+                  asChild
+                >
+                  <Link href="/work" className="flex items-center gap-4">
+                    <span className="uppercase text-sm tracking-wider font-medium">
+                      Ver mis proyectos
+                    </span>
+                    <MoveRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+
+              <div className="space-y-6 pl-0 md:pl-8">
+                <h1 className="text-4xl md:text-5xl font-bold text-purple-600">
+                  Mi Curriculum
+                </h1>
+                <p className="text-gray-700 text-lg">
+                  Puedes ver mi currículum en formato PDF para conocer
+                  más sobre mi trayectoria profesional y habilidades. Estoy
+                  abierto a nuevas oportunidades y colaboraciones.
+                </p>
+                <Button
+                  variant="outline"
+                  className="border-purple-600 text-purple-600 hover:bg-purple-50 hover:text-purple-700 rounded-none px-6 py-6 h-auto"
+                  asChild
+                >
+                  <Link href="#" className="flex items-center gap-4">
+                    <span className="uppercase text-sm tracking-wider font-medium">
+                      Ver mi CV
+                    </span>
+                    <MoveRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
