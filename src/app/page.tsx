@@ -12,32 +12,30 @@ import Link from "next/link";
 import DotPattern from "@/app/components/DotPattern";
 import StairPattern from "@/app/components/StairPattern";
 import imagenPerfil from "@/app/images/IMG_6585.jpeg";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 
 
 export default function Home() {
-  const [cambioColor, setCambioColor] = useState(false);
+const [cambioColor, setCambioColor] = useState(false);
+const tercerDivRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const totalHeight = document.body.scrollHeight;
+useEffect(() => {
+  const handleScroll = () => {
+    if (!tercerDivRef.current) return;
 
-      const triggerPoint = totalHeight - windowHeight - 200;
+    const rect = tercerDivRef.current.getBoundingClientRect();
+    const isVisible =
+      rect.top <= window.innerHeight / 2 &&
+      rect.bottom >= window.innerHeight / 2;
 
-      if (scrollY >= triggerPoint) {
-        setCambioColor(true);
-      } else {
-        setCambioColor(false);
-      }
-    };
+    setCambioColor(isVisible);
+  };
 
-    window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   
 
@@ -291,7 +289,7 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <div className="min-h-screen bg-[#4834c4] text-white">
+      <div ref={tercerDivRef} className="min-h-screen bg-[#4834c4] text-white">
         <div className="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
           <div className="space-y-8">
             <h1 className="text-[#c1ff72] text-5xl md:text-6xl font-bold leading-tight">
@@ -346,10 +344,10 @@ export default function Home() {
           <div className="container mx-auto max-w-4xl px-4">
             <div className="grid md:grid-cols-2 gap-8 border-t border-gray-100 pt-8">
               <div className="space-y-6 md:border-r border-gray-100 pr-8">
-                <h1 className="text-4xl md:text-5xl font-bold text-purple-600">
+                <h1 className="text-4xl md:text-5xl font-bold text-[#4831D4]">
                   Proyectos
                 </h1>
-                <p className="text-gray-700 text-lg">
+                <p className="text-[#3D155F] text-lg text-justify ">
                   He trabajado en varios proyectos, tanto personales como
                   profesionales. Algunos de ellos son: El Uno, Tetris, PearOS
                   (un CRUD), Gestión de incidencias, y SMNET, un sistema
@@ -357,37 +355,39 @@ export default function Home() {
                 </p>
                 <Button
                   variant="outline"
-                  className="border-purple-600 text-purple-600 hover:bg-purple-50 hover:text-purple-700 rounded-none px-6 py-6 h-auto"
+                  className="group relative border-[#4831D4] text-[#4831D4] rounded-none h-[56px] w-[250px] overflow-hidden transition-colors duration-300 ease-in-out"
                   asChild
                 >
-                  <Link href="/work" className="flex items-center gap-4">
-                    <span className="uppercase text-sm tracking-wider font-medium">
+                  <Link href="#" className="flex items-center gap-4">
+                    <span className="absolute inset-0 w-0 bg-[#4831D4] transition-all duration-500 ease-in-out group-hover:w-full" />
+                    <span className="uppercase text-sm tracking-wider font-medium text-[#4831D4] group-hover:text-white relative z-10 transition-colors duration-300">
                       Ver mis proyectos
                     </span>
-                    <MoveRight className="h-4 w-4" />
+                    <MoveRight className="h-4 w-4 text-[#4831D4] group-hover:text-white relative z-10 transition-colors duration-300" />
                   </Link>
                 </Button>
               </div>
 
               <div className="space-y-6 pl-0 md:pl-8">
-                <h1 className="text-4xl md:text-5xl font-bold text-purple-600">
-                  Mi Curriculum
+                <h1 className="text-4xl md:text-5xl font-bold text-[#4831D4]">
+                  Mi CV
                 </h1>
-                <p className="text-gray-700 text-lg">
-                  Puedes ver mi currículum en formato PDF para conocer
-                  más sobre mi trayectoria profesional y habilidades. Estoy
-                  abierto a nuevas oportunidades y colaboraciones.
+                <p className="text-[#3D155F] text-lg text-justify">
+                  Puedes ver mi currículum en formato PDF para conocer más sobre
+                  mi trayectoria profesional y habilidades. <br /> Estoy abierto a
+                  nuevas oportunidades y colaboraciones.
                 </p>
                 <Button
                   variant="outline"
-                  className="border-purple-600 text-purple-600 hover:bg-purple-50 hover:text-purple-700 rounded-none px-6 py-6 h-auto"
+                  className="group relative border-[#4831D4] text-[#4831D4] rounded-none h-[56px] w-[250px] overflow-hidden transition-colors duration-300 ease-in-out"
                   asChild
                 >
                   <Link href="#" className="flex items-center gap-4">
-                    <span className="uppercase text-sm tracking-wider font-medium">
+                    <span className="absolute inset-0 w-0 bg-[#4831D4] transition-all duration-500 ease-in-out group-hover:w-full" />
+                    <span className="uppercase text-sm tracking-wider font-medium text-[#4831D4] group-hover:text-white relative z-10 transition-colors duration-300">
                       Ver mi CV
                     </span>
-                    <MoveRight className="h-4 w-4" />
+                    <MoveRight className="h-4 w-4 text-[#4831D4] group-hover:text-white relative z-10 transition-colors duration-300" />
                   </Link>
                 </Button>
               </div>
