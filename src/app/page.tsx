@@ -1,49 +1,112 @@
-"use client";
-import Image from "next/image";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import Link from "next/link";
-import DotPattern from "@/app/components/DotPattern";
-import StairPattern from "@/app/components/StairPattern";
-import imagenPerfil from "@/app/images/IMG_6585.jpeg";
-import { useEffect, useState } from "react";
-
-
+"use client"
+import Image from "next/image"
+import { Menu, MoveRight, X } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import Link from "next/link"
+import DotPattern from "@/app/components/DotPattern"
+import StairPattern from "@/app/components/StairPattern"
+import imagenPerfil from "@/app/images/IMG_6585.jpeg"
+import { useEffect, useState, useRef } from "react"
 
 export default function Home() {
-  const [cambioColor, setCambioColor] = useState(false);
+  const [cambioColor, setCambioColor] = useState(false)
+  const tercerDivRef = useRef<HTMLDivElement>(null)
+  const div1Ref = useRef<HTMLDivElement>(null)
+  const div2Ref = useRef<HTMLDivElement>(null)
+  const div4Ref = useRef<HTMLDivElement>(null)
+
+  const [estaDesplazando, setEstaDesplazando] = useState(false)
+  const refsSecciones = [div1Ref, div2Ref, tercerDivRef, div4Ref]
+
+  const desplazarASeccion = (index: number) => {
+    const validIndex = Math.max(0, Math.min(index, refsSecciones.length - 1))
+
+    if (refsSecciones[validIndex].current) {
+      setEstaDesplazando(true)
+      refsSecciones[validIndex].current?.scrollIntoView({ behavior: "smooth", block: "start" })
+
+      setTimeout(() => {
+        setEstaDesplazando(false)
+      }, 200)
+    }
+  }
+
+  const obtenerIndiceSeccionActual = () => {
+    const viewportHeight = window.innerHeight
+    const scrollPosition = window.scrollY
+
+    for (let i = 0; i < refsSecciones.length; i++) {
+      const ref = refsSecciones[i]
+      if (!ref.current) continue
+
+      const rect = ref.current.getBoundingClientRect()
+      const elementTop = rect.top + scrollPosition
+      const elementBottom = elementTop + rect.height
+
+      if (elementTop <= scrollPosition + viewportHeight / 2 && elementBottom >= scrollPosition + viewportHeight / 2) {
+        return i
+      }
+    }
+
+    let closestSection = 0
+    let minDistance = Infinity
+
+    for (let i = 0; i < refsSecciones.length; i++) {
+      const ref = refsSecciones[i]
+      if (!ref.current) continue
+
+      const rect = ref.current.getBoundingClientRect()
+      const distance = Math.abs(rect.top + rect.height / 2 - viewportHeight / 2)
+
+      if (distance < minDistance) {
+        minDistance = distance
+        closestSection = i
+      }
+    }
+
+    return closestSection
+  }
+
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault()
+
+      if (estaDesplazando) return
+
+      const currentIndex = obtenerIndiceSeccionActual()
+
+      if (e.deltaY > 0 && currentIndex < refsSecciones.length - 1) {
+        desplazarASeccion(currentIndex + 1)
+      } else if (e.deltaY < 0 && currentIndex > 0) {
+        desplazarASeccion(currentIndex - 1)
+      }
+    }
+
+    window.addEventListener("wheel", handleWheel, { passive: false })
+    return () => window.removeEventListener("wheel", handleWheel)
+  }, [estaDesplazando])
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const totalHeight = document.body.scrollHeight;
+      if (!tercerDivRef.current) return
 
-      const triggerPoint = totalHeight - windowHeight - 200;
+      const rect = tercerDivRef.current.getBoundingClientRect()
+      const isVisible = rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2
 
-      if (scrollY >= triggerPoint) {
-        setCambioColor(true);
-      } else {
-        setCambioColor(false);
-      }
-    };
+      setCambioColor(isVisible)
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll)
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    handleScroll()
 
-  
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <main className="flex min-h-screen flex-col">
-      <div className="flex min-h-screen">
+      <div ref={div1Ref} className="flex min-h-screen">
         <div className="relative w-full lg:w-3/5 bg-[#4834C9] text-[#C5FF4A] p-8 md:p-16 flex flex-col">
           <div className="mb-16">
             <h1 className="text-3xl font-bold">Sulaiman El Taha Santos</h1>
@@ -57,27 +120,23 @@ export default function Home() {
             </h2>
 
             <p className="mt-8 text-white text-lg md:text-xl max-w-md">
-              Soy un chico de 23 años con ganas de aprender, trabajar y mejorar
-              como programador. Pero no solo eso, también soy capaz de trabajar
-              en equipo, soy social y organizado en mi trabajo. Cuando no sé
-              algo, busco la manera de aprenderlo para así mejorar. Además, me
-              gusta mucho tanto el frontend como el backend.
+              Soy un desarrollador de 23 años con pasión por aprender, trabajar y crecer profesionalmente. Me destaco
+              por mi capacidad de trabajo en equipo, habilidades sociales y organización. Cuando me enfrento a algo
+              nuevo, busco la manera de aprenderlo para mejorar constantemente. Me apasiona tanto el frontend como el
+              backend.
             </p>
 
             <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <p className="text-white text-sm md:text-base max-w-xs">
-                  Mis habilidades son: React, HTML, CSS, JS, PHP, Java,
-                  TypeScript, Next.js, Node.js, MySQL, PostgreSQL, XML, C++,
-                  Unreal Engine.
+                  Mis tecnologías: React, HTML, CSS, JavaScript, PHP, Java, TypeScript, Next.js, Node.js, MySQL,
+                  PostgreSQL, XML, C++, Unreal Engine.
                 </p>
               </div>
               <div>
                 <p className="text-white text-sm md:text-base max-w-xs">
-                  Mi experiencia como desarrollador web ha sido en sistemas
-                  medioambientales, cooperando en un proyecto de RRHH usando
-                  Symfony y React con Tailwind y MaterialUI. También he tenido
-                  experiencia como freelance en un proyecto con PHP y MySQL.
+                  Mi experiencia incluye desarrollo de sistemas medioambientales, colaboración en un proyecto de RRHH
+                  con Symfony y React (Tailwind y MaterialUI), y trabajo freelance con PHP y MySQL.
                 </p>
               </div>
             </div>
@@ -93,9 +152,7 @@ export default function Home() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={`transition-colors duration-300 ${
-                    cambioColor ? "text-[#CCEF38]" : "text-[#4834C9]"
-                  }`}
+                  className={`transition-colors duration-300 ${cambioColor ? "text-[#CCEF38]" : "text-[#4834C9]"}`}
                 >
                   <Menu className="h-8 w-8" />
                 </Button>
@@ -108,7 +165,7 @@ export default function Home() {
                   Mis proyectos
                 </DropdownMenuItem>
                 <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
-                  Home
+                  Inicio
                 </DropdownMenuItem>
                 <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
                   Mi CV
@@ -116,14 +173,10 @@ export default function Home() {
 
                 <div className="flex gap-4 mt-6">
                   <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
-                    <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
-                      GH
-                    </p>
+                    <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">GH</p>
                   </Link>
                   <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/">
-                    <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
-                      LN
-                    </p>
+                    <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">LN</p>
                   </Link>
                 </div>
               </DropdownMenuContent>
@@ -135,10 +188,7 @@ export default function Home() {
               {Array(100)
                 .fill(0)
                 .map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-1 h-1 rounded-full bg-[#4834C9] opacity-50"
-                  ></div>
+                  <div key={i} className="w-1 h-1 rounded-full bg-[#4834C9] opacity-50"></div>
                 ))}
             </div>
 
@@ -146,48 +196,25 @@ export default function Home() {
               {Array(100)
                 .fill(0)
                 .map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-1 h-1 rounded-full bg-[#4834C9] opacity-50"
-                  ></div>
+                  <div key={i} className="w-1 h-1 rounded-full bg-[#4834C9] opacity-50"></div>
                 ))}
             </div>
 
             <div className="absolute -top-8 -right-24">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 40V30H10V20H20V10H30V0H40"
-                  stroke="#4834C9"
-                  strokeWidth="2"
-                />
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 40V30H10V20H20V10H30V0H40" stroke="#4834C9" strokeWidth="2" />
               </svg>
             </div>
 
             <div className="absolute -bottom-8 -left-24">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0V10H10V20H20V30H30V40H40"
-                  stroke="#4834C9"
-                  strokeWidth="2"
-                />
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0V10H10V20H20V30H30V40H40" stroke="#4834C9" strokeWidth="2" />
               </svg>
             </div>
 
             <div className="relative w-72 h-80 bg-gray-300 shadow-lg">
               <Image
-                src={imagenPerfil}
+                src={imagenPerfil || "/placeholder.svg"}
                 alt="Sulaiman El Taha Santos"
                 width={288}
                 height={320}
@@ -202,17 +229,13 @@ export default function Home() {
             {Array(4)
               .fill(0)
               .map((_, i) => (
-                <div
-                  key={i}
-                  className="w-2 h-2 rounded-full bg-[#4834C9]"
-                ></div>
+                <div key={i} className="w-2 h-2 rounded-full bg-[#4834C9]"></div>
               ))}
           </div>
 
           <div className="absolute bottom-8 right-8 w-4 h-4 border-2 border-[#4834C9]"></div>
         </div>
       </div>
-
       <div className="lg:hidden absolute top-8 right-8">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -228,7 +251,7 @@ export default function Home() {
               Mis proyectos
             </DropdownMenuItem>
             <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
-              Home
+              Inicio
             </DropdownMenuItem>
             <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
               Mi CV
@@ -236,32 +259,23 @@ export default function Home() {
 
             <div className="flex gap-4 mt-6">
               <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
-                <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
-                  GH
-                </p>
+                <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">GH</p>
               </Link>
               <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/">
-                <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
-                  LN
-                </p>
+                <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">LN</p>
               </Link>
             </div>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-
-      <div className="min-h-screen bg-white">
+      <div ref={div2Ref} className="min-h-screen bg-white">
         <section className="relative py-32 px-4 container mx-auto">
           <div className="max-w-2xl ml-12 md:ml-24">
-            <h2 className="text-6xl md:text-7xl font-bold text-[#4834C9] mb-6">
-              Diseño
-            </h2>
+            <h2 className="text-6xl md:text-7xl font-bold text-[#4834C9] mb-6">Diseño</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              En el diseño de aplicaciones JavaScript, y PHP, me gusta crear
-              experiencias de usuario atractivas y funcionales. Me enfoco en
-              crear interfaces intuitivas y atractivas que mejoren la usabilidad
-              y la satisfacción del usuario. Siempre busco la simplicidad y la
-              elegancia en cada diseño.
+              En el diseño de aplicaciones con JavaScript y PHP, me enfoco en crear experiencias de usuario atractivas y
+              funcionales. Desarrollo interfaces intuitivas que mejoran la usabilidad y satisfacción del usuario.
+              Siempre busco la simplicidad y elegancia en cada proyecto.
             </p>
           </div>
 
@@ -272,15 +286,11 @@ export default function Home() {
 
         <section className="relative py-32 px-4 container mx-auto">
           <div className="max-w-2xl ml-auto mr-12 md:mr-24">
-            <h2 className="text-6xl md:text-7xl font-bold text-[#4834C9] mb-6">
-              Desarrollo
-            </h2>
+            <h2 className="text-6xl md:text-7xl font-bold text-[#4834C9] mb-6">Desarrollo</h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              En el desarrollo de aplicaciones con JavaScript/React/Next y
-              Typescript como front me encargo de crear aplicaciones web rápidas
-              y eficientes. Utilizo las últimas tecnologías y mejores prácticas
-              para asegurar un rendimiento óptimo y una experiencia de usuario
-              fluida. Me gusta trabajar con APIs RESTful
+              Como desarrollador frontend con React/Next.js y TypeScript, creo aplicaciones web rápidas y eficientes.
+              Utilizo las últimas tecnologías y mejores prácticas para garantizar un rendimiento óptimo y una
+              experiencia fluida. Me especializo en integración con APIs RESTful.
             </p>
           </div>
 
@@ -293,40 +303,31 @@ export default function Home() {
           </div>
         </section>
       </div>
-
-      <div className="min-h-screen bg-[#4834c4] text-white">
+      <div ref={tercerDivRef} className="min-h-screen bg-[#4834c4] text-white">
         <div className="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
           <div className="space-y-8">
-            <h1 className="text-[#c1ff72] text-5xl md:text-6xl font-bold leading-tight">
-              Experiencia/Trayectoria
-            </h1>
+            <h1 className="text-[#c1ff72] text-5xl md:text-6xl font-bold leading-tight">Experiencia/Trayectoria</h1>
 
             <div className="space-y-6">
               <p className="text-lg">
-                Mi trayectoria informatica comenzó como Técnico de Sistemas en
-                Centre FP Llefià, administrando redes Windows/Linux,
-                automatizando backups y documentando procesos críticos.
+                Mi carrera informática comenzó como Técnico de Sistemas en Centre FP Llefià, donde administraba redes
+                Windows/Linux, automatizaba copias de seguridad y documentaba procesos críticos.
               </p>
 
               <p className="text-lg">
-                He creado soluciones digitales para organizaciones de distintos
-                sectores, desde la optimización de sistemas internos hasta
-                aplicaciones web completas, siempre con énfasis en rendimiento,
-                código limpio y accesibilidad.
+                He desarrollado soluciones digitales para diversos sectores, desde optimización de sistemas internos
+                hasta aplicaciones web completas, siempre priorizando rendimiento, código limpio y accesibilidad.
               </p>
 
               <p className="text-lg">
-                Actualmente soy Full‑stack Developer en prácticas en SM
-                Sistemas Medioambientales, donde desarrollo y mantengo una
-                plataforma React + Symfony: migré estilos a Tailwind CSS,
-                rediseñé los flujos de autenticación y optimicé consultas para
-                mejorar la velocidad de SMNET.
+                Actualmente soy Full‑stack Developer en prácticas en SM Sistemas Medioambientales, donde desarrollo y
+                mantengo una plataforma React + Symfony: implementé Tailwind CSS, rediseñé los flujos de autenticación y
+                optimicé consultas para mejorar el rendimiento de SMNET.
               </p>
 
               <p className="text-lg">
-                Antes colaboré como Desarrollador Back‑end freelance en
-                Grupo Guaraní, reforzando un CRUD de facturación en PHP/MySQL y
-                generando PDFs bajo método Agile.
+                Anteriormente colaboré como Desarrollador Back‑end freelance en Grupo Guaraní, mejorando un sistema de
+                facturación en PHP/MySQL y generando documentos PDF bajo metodología Agile.
               </p>
             </div>
           </div>
@@ -334,7 +335,7 @@ export default function Home() {
           <div className="relative hidden lg:block">
             <div className="absolute inset-0 flex items-center justify-center">
               <Image
-                src={imagenPerfil}
+                src={imagenPerfil || "/placeholder.svg"}
                 width={400}
                 height={400}
                 alt="Mi foto"
@@ -344,6 +345,56 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div ref={div4Ref} className="min-h-screen flex flex-col">
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="container mx-auto max-w-4xl px-4">
+            <div className="grid md:grid-cols-2 gap-8 border-t border-gray-100 pt-8">
+              <div className="space-y-6 md:border-r border-gray-100 pr-8">
+                <h1 className="text-4xl md:text-5xl font-bold text-[#4831D4]">Proyectos</h1>
+                <p className="text-[#3D155F] text-lg text-justify ">
+                  He desarrollado diversos proyectos personales y profesionales, incluyendo: El Uno (juego de cartas),
+                  Tetris, PearOS (sistema CRUD), un sistema de gestión de incidencias, y SMNET, una plataforma
+                  empresarial.
+                </p>
+                <Button
+                  variant="outline"
+                  className="group relative border-[#4831D4] text-[#4831D4] rounded-none h-[56px] w-[250px] overflow-hidden transition-colors duration-300 ease-in-out"
+                  asChild
+                >
+                  <Link href="#" className="flex items-center gap-4">
+                    <span className="absolute inset-0 w-0 bg-[#4831D4] transition-all duration-500 ease-in-out group-hover:w-full" />
+                    <span className="uppercase text-sm tracking-wider font-medium text-[#4831D4] group-hover:text-white relative z-10 transition-colors duration-300">
+                      Ver mis proyectos
+                    </span>
+                    <MoveRight className="h-4 w-4 text-[#4831D4] group-hover:text-white relative z-10 transition-colors duration-300" />
+                  </Link>
+                </Button>
+              </div>
+
+              <div className="space-y-6 pl-0 md:pl-8">
+                <h1 className="text-4xl md:text-5xl font-bold text-[#4831D4]">Mi CV</h1>
+                <p className="text-[#3D155F] text-lg text-justify">
+                  Puedes consultar mi currículum en formato PDF para conocer en detalle mi trayectoria profesional y
+                  competencias técnicas. Estoy disponible para nuevas oportunidades y colaboraciones.
+                </p>
+                <Button
+                  variant="outline"
+                  className="group relative border-[#4831D4] text-[#4831D4] rounded-none h-[56px] w-[250px] overflow-hidden transition-colors duration-300 ease-in-out"
+                  asChild
+                >
+                  <Link href="#" className="flex items-center gap-4">
+                    <span className="absolute inset-0 w-0 bg-[#4831D4] transition-all duration-500 ease-in-out group-hover:w-full" />
+                    <span className="uppercase text-sm tracking-wider font-medium text-[#4831D4] group-hover:text-white relative z-10 transition-colors duration-300">
+                      Ver mi CV
+                    </span>
+                    <MoveRight className="h-4 w-4 text-[#4831D4] group-hover:text-white relative z-10 transition-colors duration-300" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
-  );
+  )
 }
