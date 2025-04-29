@@ -1,15 +1,22 @@
-"use client"
-import Image from "next/image"
-import { Menu, MoveRight, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import Link from "next/link"
-import DotPattern from "@/app/components/DotPattern"
-import StairPattern from "@/app/components/StairPattern"
-import imagenPerfil from "@/app/images/IMG_6585.jpeg"
-import { useEffect, useState, useRef } from "react"
-import { Textarea } from "@/components/ui/textarea"
-import { Input } from "@/components/ui/input"
+"use client";
+import Image from "next/image";
+import type React from "react";
+
+import { Menu, MoveRight, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import Link from "next/link";
+import DotPattern from "@/app/components/DotPattern";
+import StairPattern from "@/app/components/StairPattern";
+import imagenPerfil from "@/app/images/IMG_6585.jpeg";
+import { useEffect, useState, useRef } from "react";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 
 export default function Home() {
   const [cambioColor, setCambioColor] = useState(false);
@@ -18,6 +25,7 @@ export default function Home() {
   const div2Ref = useRef<HTMLDivElement>(null);
   const div4Ref = useRef<HTMLDivElement>(null);
   const div5Ref = useRef<HTMLDivElement>(null);
+  const div6Ref = useRef<HTMLDivElement>(null);
 
   const [estaDesplazando, setEstaDesplazando] = useState(false);
   const [formData, setFormData] = useState({
@@ -27,7 +35,14 @@ export default function Home() {
       "Hola, me encantó tu portafolio y el estilo de tus diseños. Estoy buscando a alguien que me ayude a desarrollar la identidad visual de una marca personal que estoy lanzando. ¿Tienes disponibilidad para una reunión esta semana? ¡Gracias!",
   });
 
-  const refsSecciones = [div1Ref, div2Ref, tercerDivRef, div4Ref, div5Ref];
+  const refsSecciones = [
+    div1Ref,
+    div2Ref,
+    tercerDivRef,
+    div4Ref,
+    div5Ref,
+    div6Ref,
+  ];
 
   const desplazarASeccion = (index: number) => {
     const validIndex = Math.max(0, Math.min(index, refsSecciones.length - 1));
@@ -66,7 +81,7 @@ export default function Home() {
     }
 
     let closestSection = 0;
-    let minDistance = Infinity;
+    let minDistance = Number.POSITIVE_INFINITY;
 
     for (let i = 0; i < refsSecciones.length; i++) {
       const ref = refsSecciones[i];
@@ -107,14 +122,20 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!tercerDivRef.current) return;
+      if (!tercerDivRef.current || !div6Ref.current) return;
 
-      const rect = tercerDivRef.current.getBoundingClientRect();
-      const isVisible =
-        rect.top <= window.innerHeight / 2 &&
-        rect.bottom >= window.innerHeight / 2;
+      const rect3 = tercerDivRef.current.getBoundingClientRect();
+      const rect6 = div6Ref.current.getBoundingClientRect();
 
-      setCambioColor(isVisible);
+      const isThirdVisible =
+        rect3.top <= window.innerHeight / 2 &&
+        rect3.bottom >= window.innerHeight / 2;
+
+      const isSixthVisible =
+        rect6.top <= window.innerHeight / 2 &&
+        rect6.bottom >= window.innerHeight / 2;
+
+      setCambioColor(isThirdVisible || isSixthVisible);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -575,6 +596,72 @@ export default function Home() {
             </div>
           </form>
         </div>
+      </div>
+      <div
+        ref={div6Ref}
+        className="min-h-screen flex flex-col justify-between bg-[#3b1a68] text-white p-8 md:p-16 lg:p-24"
+      >
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-32">
+            <div>
+              <h2 className="text-sm uppercase tracking-wider mb-6">
+                Saludame
+              </h2>
+              <div className="space-y-4">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&to=sulat3821@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-[#b9ff64] hover:text-[#d2ff9e] transition-colors"
+                >
+                  Sulaiman.dev
+                </a>
+              </div>
+            </div>
+            <div>
+              <nav className="space-y-4">
+                <Link
+                  href="#"
+                  className="block text-[#b9ff64] hover:text-[#d2ff9e] transition-colors"
+                >
+                  Mis proyectos
+                </Link>
+                <Link
+                  href="#"
+                  className="block text-[#b9ff64] hover:text-[#d2ff9e] transition-colors"
+                >
+                  Mi CV
+                </Link>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <footer className="max-w-6xl mx-auto w-full">
+          <div className="border-t border-[#5a3a87] pt-6 w-full">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+              <div className="text-[#b9ff64]">
+                © Sulaiman El Taha Santos {new Date().getFullYear()}
+              </div>
+              <div className="flex gap-6">
+                <Link
+                  href="https://github.com/SulaimanTahaSantos?tab=repositories"
+                  className="text-[#b9ff64] hover:text-[#d2ff9e] transition-colors"
+                  aria-label="GitHub"
+                >
+                  GH
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/"
+                  className="text-[#b9ff64] hover:text-[#d2ff9e] transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  LN
+                </Link>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </main>
   );
