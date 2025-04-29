@@ -1,15 +1,22 @@
-"use client"
-import Image from "next/image"
-import { Menu, MoveRight, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import Link from "next/link"
-import DotPattern from "@/app/components/DotPattern"
-import StairPattern from "@/app/components/StairPattern"
-import imagenPerfil from "@/app/images/IMG_6585.jpeg"
-import { useEffect, useState, useRef } from "react"
-import { Textarea } from "@/components/ui/textarea"
-import { Input } from "@/components/ui/input"
+"use client";
+import Image from "next/image";
+import type React from "react";
+
+import { Menu, MoveRight, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import Link from "next/link";
+import DotPattern from "@/app/components/DotPattern";
+import StairPattern from "@/app/components/StairPattern";
+import imagenPerfil from "@/app/images/IMG_6585.jpeg";
+import { useEffect, useState, useRef } from "react";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 
 export default function Home() {
   const [cambioColor, setCambioColor] = useState(false);
@@ -28,7 +35,14 @@ export default function Home() {
       "Hola, me encantó tu portafolio y el estilo de tus diseños. Estoy buscando a alguien que me ayude a desarrollar la identidad visual de una marca personal que estoy lanzando. ¿Tienes disponibilidad para una reunión esta semana? ¡Gracias!",
   });
 
-  const refsSecciones = [div1Ref, div2Ref, tercerDivRef, div4Ref, div5Ref, div6Ref];
+  const refsSecciones = [
+    div1Ref,
+    div2Ref,
+    tercerDivRef,
+    div4Ref,
+    div5Ref,
+    div6Ref,
+  ];
 
   const desplazarASeccion = (index: number) => {
     const validIndex = Math.max(0, Math.min(index, refsSecciones.length - 1));
@@ -67,7 +81,7 @@ export default function Home() {
     }
 
     let closestSection = 0;
-    let minDistance = Infinity;
+    let minDistance = Number.POSITIVE_INFINITY;
 
     for (let i = 0; i < refsSecciones.length; i++) {
       const ref = refsSecciones[i];
@@ -108,14 +122,20 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!tercerDivRef.current) return;
+      if (!tercerDivRef.current || !div6Ref.current) return;
 
-      const rect = tercerDivRef.current.getBoundingClientRect();
-      const isVisible =
-        rect.top <= window.innerHeight / 2 &&
-        rect.bottom >= window.innerHeight / 2;
+      const rect3 = tercerDivRef.current.getBoundingClientRect();
+      const rect6 = div6Ref.current.getBoundingClientRect();
 
-      setCambioColor(isVisible);
+      const isThirdVisible =
+        rect3.top <= window.innerHeight / 2 &&
+        rect3.bottom >= window.innerHeight / 2;
+
+      const isSixthVisible =
+        rect6.top <= window.innerHeight / 2 &&
+        rect6.bottom >= window.innerHeight / 2;
+
+      setCambioColor(isThirdVisible || isSixthVisible);
     };
 
     window.addEventListener("scroll", handleScroll);
