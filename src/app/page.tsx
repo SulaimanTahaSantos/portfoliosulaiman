@@ -8,101 +8,137 @@ import DotPattern from "@/app/components/DotPattern"
 import StairPattern from "@/app/components/StairPattern"
 import imagenPerfil from "@/app/images/IMG_6585.jpeg"
 import { useEffect, useState, useRef } from "react"
+import { Textarea } from "@/components/ui/textarea"
+import { Input } from "@/components/ui/input"
 
 export default function Home() {
-  const [cambioColor, setCambioColor] = useState(false)
-  const tercerDivRef = useRef<HTMLDivElement>(null)
-  const div1Ref = useRef<HTMLDivElement>(null)
-  const div2Ref = useRef<HTMLDivElement>(null)
-  const div4Ref = useRef<HTMLDivElement>(null)
+  const [cambioColor, setCambioColor] = useState(false);
+  const tercerDivRef = useRef<HTMLDivElement>(null);
+  const div1Ref = useRef<HTMLDivElement>(null);
+  const div2Ref = useRef<HTMLDivElement>(null);
+  const div4Ref = useRef<HTMLDivElement>(null);
+  const div5Ref = useRef<HTMLDivElement>(null);
 
-  const [estaDesplazando, setEstaDesplazando] = useState(false)
-  const refsSecciones = [div1Ref, div2Ref, tercerDivRef, div4Ref]
+  const [estaDesplazando, setEstaDesplazando] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message:
+      "Hola, me encantó tu portafolio y el estilo de tus diseños. Estoy buscando a alguien que me ayude a desarrollar la identidad visual de una marca personal que estoy lanzando. ¿Tienes disponibilidad para una reunión esta semana? ¡Gracias!",
+  });
+
+  const refsSecciones = [div1Ref, div2Ref, tercerDivRef, div4Ref, div5Ref];
 
   const desplazarASeccion = (index: number) => {
-    const validIndex = Math.max(0, Math.min(index, refsSecciones.length - 1))
+    const validIndex = Math.max(0, Math.min(index, refsSecciones.length - 1));
 
     if (refsSecciones[validIndex].current) {
-      setEstaDesplazando(true)
-      refsSecciones[validIndex].current?.scrollIntoView({ behavior: "smooth", block: "start" })
+      setEstaDesplazando(true);
+      refsSecciones[validIndex].current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
 
       setTimeout(() => {
-        setEstaDesplazando(false)
-      }, 200)
+        setEstaDesplazando(false);
+      }, 200);
     }
-  }
+  };
 
   const obtenerIndiceSeccionActual = () => {
-    const viewportHeight = window.innerHeight
-    const scrollPosition = window.scrollY
+    const viewportHeight = window.innerHeight;
+    const scrollPosition = window.scrollY;
 
     for (let i = 0; i < refsSecciones.length; i++) {
-      const ref = refsSecciones[i]
-      if (!ref.current) continue
+      const ref = refsSecciones[i];
+      if (!ref.current) continue;
 
-      const rect = ref.current.getBoundingClientRect()
-      const elementTop = rect.top + scrollPosition
-      const elementBottom = elementTop + rect.height
+      const rect = ref.current.getBoundingClientRect();
+      const elementTop = rect.top + scrollPosition;
+      const elementBottom = elementTop + rect.height;
 
-      if (elementTop <= scrollPosition + viewportHeight / 2 && elementBottom >= scrollPosition + viewportHeight / 2) {
-        return i
+      if (
+        elementTop <= scrollPosition + viewportHeight / 2 &&
+        elementBottom >= scrollPosition + viewportHeight / 2
+      ) {
+        return i;
       }
     }
 
-    let closestSection = 0
-    let minDistance = Infinity
+    let closestSection = 0;
+    let minDistance = Infinity;
 
     for (let i = 0; i < refsSecciones.length; i++) {
-      const ref = refsSecciones[i]
-      if (!ref.current) continue
+      const ref = refsSecciones[i];
+      if (!ref.current) continue;
 
-      const rect = ref.current.getBoundingClientRect()
-      const distance = Math.abs(rect.top + rect.height / 2 - viewportHeight / 2)
+      const rect = ref.current.getBoundingClientRect();
+      const distance = Math.abs(
+        rect.top + rect.height / 2 - viewportHeight / 2
+      );
 
       if (distance < minDistance) {
-        minDistance = distance
-        closestSection = i
+        minDistance = distance;
+        closestSection = i;
       }
     }
 
-    return closestSection
-  }
+    return closestSection;
+  };
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      e.preventDefault()
+      e.preventDefault();
 
-      if (estaDesplazando) return
+      if (estaDesplazando) return;
 
-      const currentIndex = obtenerIndiceSeccionActual()
+      const currentIndex = obtenerIndiceSeccionActual();
 
       if (e.deltaY > 0 && currentIndex < refsSecciones.length - 1) {
-        desplazarASeccion(currentIndex + 1)
+        desplazarASeccion(currentIndex + 1);
       } else if (e.deltaY < 0 && currentIndex > 0) {
-        desplazarASeccion(currentIndex - 1)
+        desplazarASeccion(currentIndex - 1);
       }
-    }
+    };
 
-    window.addEventListener("wheel", handleWheel, { passive: false })
-    return () => window.removeEventListener("wheel", handleWheel)
-  }, [estaDesplazando])
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, [estaDesplazando]);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!tercerDivRef.current) return
+      if (!tercerDivRef.current) return;
 
-      const rect = tercerDivRef.current.getBoundingClientRect()
-      const isVisible = rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2
+      const rect = tercerDivRef.current.getBoundingClientRect();
+      const isVisible =
+        rect.top <= window.innerHeight / 2 &&
+        rect.bottom >= window.innerHeight / 2;
 
-      setCambioColor(isVisible)
-    }
+      setCambioColor(isVisible);
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
-    handleScroll()
+    handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Envio:", formData);
+    // Aqui pondremos nustro backend o usando la api de emailjs ya veremos que hacemos.
+  };
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -120,23 +156,27 @@ export default function Home() {
             </h2>
 
             <p className="mt-8 text-white text-lg md:text-xl max-w-md">
-              Soy un desarrollador de 23 años con pasión por aprender, trabajar y crecer profesionalmente. Me destaco
-              por mi capacidad de trabajo en equipo, habilidades sociales y organización. Cuando me enfrento a algo
-              nuevo, busco la manera de aprenderlo para mejorar constantemente. Me apasiona tanto el frontend como el
-              backend.
+              Soy un desarrollador de 23 años con pasión por aprender, trabajar
+              y crecer profesionalmente. Me destaco por mi capacidad de trabajo
+              en equipo, habilidades sociales y organización. Cuando me enfrento
+              a algo nuevo, busco la manera de aprenderlo para mejorar
+              constantemente. Me apasiona tanto el frontend como el backend.
             </p>
 
             <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <p className="text-white text-sm md:text-base max-w-xs">
-                  Mis tecnologías: React, HTML, CSS, JavaScript, PHP, Java, TypeScript, Next.js, Node.js, MySQL,
-                  PostgreSQL, XML, C++, Unreal Engine.
+                  Mis tecnologías: React, HTML, CSS, JavaScript, PHP, Java,
+                  TypeScript, Next.js, Node.js, MySQL, PostgreSQL, XML, C++,
+                  Unreal Engine.
                 </p>
               </div>
               <div>
                 <p className="text-white text-sm md:text-base max-w-xs">
-                  Mi experiencia incluye desarrollo de sistemas medioambientales, colaboración en un proyecto de RRHH
-                  con Symfony y React (Tailwind y MaterialUI), y trabajo freelance con PHP y MySQL.
+                  Mi experiencia incluye desarrollo de sistemas
+                  medioambientales, colaboración en un proyecto de RRHH con
+                  Symfony y React (Tailwind y MaterialUI), y trabajo freelance
+                  con PHP y MySQL.
                 </p>
               </div>
             </div>
@@ -152,7 +192,9 @@ export default function Home() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={`transition-colors duration-300 ${cambioColor ? "text-[#CCEF38]" : "text-[#4834C9]"}`}
+                  className={`transition-colors duration-300 ${
+                    cambioColor ? "text-[#CCEF38]" : "text-[#4834C9]"
+                  }`}
                 >
                   <Menu className="h-8 w-8" />
                 </Button>
@@ -173,10 +215,14 @@ export default function Home() {
 
                 <div className="flex gap-4 mt-6">
                   <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
-                    <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">GH</p>
+                    <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
+                      GH
+                    </p>
                   </Link>
                   <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/">
-                    <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">LN</p>
+                    <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
+                      LN
+                    </p>
                   </Link>
                 </div>
               </DropdownMenuContent>
@@ -188,7 +234,10 @@ export default function Home() {
               {Array(100)
                 .fill(0)
                 .map((_, i) => (
-                  <div key={i} className="w-1 h-1 rounded-full bg-[#4834C9] opacity-50"></div>
+                  <div
+                    key={i}
+                    className="w-1 h-1 rounded-full bg-[#4834C9] opacity-50"
+                  ></div>
                 ))}
             </div>
 
@@ -196,19 +245,42 @@ export default function Home() {
               {Array(100)
                 .fill(0)
                 .map((_, i) => (
-                  <div key={i} className="w-1 h-1 rounded-full bg-[#4834C9] opacity-50"></div>
+                  <div
+                    key={i}
+                    className="w-1 h-1 rounded-full bg-[#4834C9] opacity-50"
+                  ></div>
                 ))}
             </div>
 
             <div className="absolute -top-8 -right-24">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 40V30H10V20H20V10H30V0H40" stroke="#4834C9" strokeWidth="2" />
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 40V30H10V20H20V10H30V0H40"
+                  stroke="#4834C9"
+                  strokeWidth="2"
+                />
               </svg>
             </div>
 
             <div className="absolute -bottom-8 -left-24">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0V10H10V20H20V30H30V40H40" stroke="#4834C9" strokeWidth="2" />
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0V10H10V20H20V30H30V40H40"
+                  stroke="#4834C9"
+                  strokeWidth="2"
+                />
               </svg>
             </div>
 
@@ -229,7 +301,10 @@ export default function Home() {
             {Array(4)
               .fill(0)
               .map((_, i) => (
-                <div key={i} className="w-2 h-2 rounded-full bg-[#4834C9]"></div>
+                <div
+                  key={i}
+                  className="w-2 h-2 rounded-full bg-[#4834C9]"
+                ></div>
               ))}
           </div>
 
@@ -259,10 +334,14 @@ export default function Home() {
 
             <div className="flex gap-4 mt-6">
               <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
-                <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">GH</p>
+                <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
+                  GH
+                </p>
               </Link>
               <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/">
-                <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">LN</p>
+                <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
+                  LN
+                </p>
               </Link>
             </div>
           </DropdownMenuContent>
@@ -271,11 +350,15 @@ export default function Home() {
       <div ref={div2Ref} className="min-h-screen bg-white">
         <section className="relative py-32 px-4 container mx-auto">
           <div className="max-w-2xl ml-12 md:ml-24">
-            <h2 className="text-6xl md:text-7xl font-bold text-[#4834C9] mb-6">Diseño</h2>
+            <h2 className="text-6xl md:text-7xl font-bold text-[#4834C9] mb-6">
+              Diseño
+            </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              En el diseño de aplicaciones con JavaScript y PHP, me enfoco en crear experiencias de usuario atractivas y
-              funcionales. Desarrollo interfaces intuitivas que mejoran la usabilidad y satisfacción del usuario.
-              Siempre busco la simplicidad y elegancia en cada proyecto.
+              En el diseño de aplicaciones con JavaScript y PHP, me enfoco en
+              crear experiencias de usuario atractivas y funcionales. Desarrollo
+              interfaces intuitivas que mejoran la usabilidad y satisfacción del
+              usuario. Siempre busco la simplicidad y elegancia en cada
+              proyecto.
             </p>
           </div>
 
@@ -286,11 +369,15 @@ export default function Home() {
 
         <section className="relative py-32 px-4 container mx-auto">
           <div className="max-w-2xl ml-auto mr-12 md:mr-24">
-            <h2 className="text-6xl md:text-7xl font-bold text-[#4834C9] mb-6">Desarrollo</h2>
+            <h2 className="text-6xl md:text-7xl font-bold text-[#4834C9] mb-6">
+              Desarrollo
+            </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Como desarrollador frontend con React/Next.js y TypeScript, creo aplicaciones web rápidas y eficientes.
-              Utilizo las últimas tecnologías y mejores prácticas para garantizar un rendimiento óptimo y una
-              experiencia fluida. Me especializo en integración con APIs RESTful.
+              Como desarrollador frontend con React/Next.js y TypeScript, creo
+              aplicaciones web rápidas y eficientes. Utilizo las últimas
+              tecnologías y mejores prácticas para garantizar un rendimiento
+              óptimo y una experiencia fluida. Me especializo en integración con
+              APIs RESTful.
             </p>
           </div>
 
@@ -306,28 +393,37 @@ export default function Home() {
       <div ref={tercerDivRef} className="min-h-screen bg-[#4834c4] text-white">
         <div className="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
           <div className="space-y-8">
-            <h1 className="text-[#c1ff72] text-5xl md:text-6xl font-bold leading-tight">Experiencia/Trayectoria</h1>
+            <h1 className="text-[#c1ff72] text-5xl md:text-6xl font-bold leading-tight">
+              Experiencia/Trayectoria
+            </h1>
 
             <div className="space-y-6">
               <p className="text-lg">
-                Mi carrera informática comenzó como Técnico de Sistemas en Centre FP Llefià, donde administraba redes
-                Windows/Linux, automatizaba copias de seguridad y documentaba procesos críticos.
+                Mi carrera informática comenzó como Técnico de Sistemas en
+                Centre FP Llefià, donde administraba redes Windows/Linux,
+                automatizaba copias de seguridad y documentaba procesos
+                críticos.
               </p>
 
               <p className="text-lg">
-                He desarrollado soluciones digitales para diversos sectores, desde optimización de sistemas internos
-                hasta aplicaciones web completas, siempre priorizando rendimiento, código limpio y accesibilidad.
+                He desarrollado soluciones digitales para diversos sectores,
+                desde optimización de sistemas internos hasta aplicaciones web
+                completas, siempre priorizando rendimiento, código limpio y
+                accesibilidad.
               </p>
 
               <p className="text-lg">
-                Actualmente soy Full‑stack Developer en prácticas en SM Sistemas Medioambientales, donde desarrollo y
-                mantengo una plataforma React + Symfony: implementé Tailwind CSS, rediseñé los flujos de autenticación y
-                optimicé consultas para mejorar el rendimiento de SMNET.
+                Actualmente soy Full‑stack Developer en prácticas en SM Sistemas
+                Medioambientales, donde desarrollo y mantengo una plataforma
+                React + Symfony: implementé Tailwind CSS, rediseñé los flujos de
+                autenticación y optimicé consultas para mejorar el rendimiento
+                de SMNET.
               </p>
 
               <p className="text-lg">
-                Anteriormente colaboré como Desarrollador Back‑end freelance en Grupo Guaraní, mejorando un sistema de
-                facturación en PHP/MySQL y generando documentos PDF bajo metodología Agile.
+                Anteriormente colaboré como Desarrollador Back‑end freelance en
+                Grupo Guaraní, mejorando un sistema de facturación en PHP/MySQL
+                y generando documentos PDF bajo metodología Agile.
               </p>
             </div>
           </div>
@@ -350,11 +446,14 @@ export default function Home() {
           <div className="container mx-auto max-w-4xl px-4">
             <div className="grid md:grid-cols-2 gap-8 border-t border-gray-100 pt-8">
               <div className="space-y-6 md:border-r border-gray-100 pr-8">
-                <h1 className="text-4xl md:text-5xl font-bold text-[#4831D4]">Proyectos</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-[#4831D4]">
+                  Proyectos
+                </h1>
                 <p className="text-[#3D155F] text-lg text-justify ">
-                  He desarrollado diversos proyectos personales y profesionales, incluyendo: El Uno (juego de cartas),
-                  Tetris, PearOS (sistema CRUD), un sistema de gestión de incidencias, y SMNET, una plataforma
-                  empresarial.
+                  He desarrollado diversos proyectos personales y profesionales,
+                  incluyendo: El Uno (juego de cartas), Tetris, PearOS (sistema
+                  CRUD), un sistema de gestión de incidencias, y SMNET, una
+                  plataforma empresarial.
                 </p>
                 <Button
                   variant="outline"
@@ -372,10 +471,13 @@ export default function Home() {
               </div>
 
               <div className="space-y-6 pl-0 md:pl-8">
-                <h1 className="text-4xl md:text-5xl font-bold text-[#4831D4]">Mi CV</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-[#4831D4]">
+                  Mi CV
+                </h1>
                 <p className="text-[#3D155F] text-lg text-justify">
-                  Puedes consultar mi currículum en formato PDF para conocer en detalle mi trayectoria profesional y
-                  competencias técnicas. Estoy disponible para nuevas oportunidades y colaboraciones.
+                  Puedes consultar mi currículum en formato PDF para conocer en
+                  detalle mi trayectoria profesional y competencias técnicas.
+                  Estoy disponible para nuevas oportunidades y colaboraciones.
                 </p>
                 <Button
                   variant="outline"
@@ -395,6 +497,85 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div
+        ref={div5Ref}
+        className="min-h-screen bg-gray-50 flex items-center justify-center p-4"
+      >
+        <div className="max-w-xl w-full mx-auto">
+          <div className="text-center mb-10">
+            <h1 className="text-4xl md:text-5xl font-bold text-purple-600 mb-4">
+              Mandame un mensaje !
+            </h1>
+            <p className="text-gray-600">
+              Tienes alguna pregunta o propuesta, o simplemente quieres saludar?
+              adelante
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="space-y-6">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+                <div className="flex-1 space-y-2">
+                  <label htmlFor="name" className="text-gray-500 text-sm">
+                    Tu nombre
+                  </label>
+                  <Input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your name"
+                    className="w-full border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-purple-600"
+                  />
+                </div>
+
+                <div className="flex-1 space-y-2">
+                  <label htmlFor="email" className="text-gray-500 text-sm">
+                    Tu Email
+                  </label>
+                  <Input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email address"
+                    className="w-full border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-purple-600"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-gray-500 text-sm">
+                  Tu mensaje
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full min-h-[120px] border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-purple-600 resize-none"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-center mt-12">
+              <Button
+                variant="outline"
+                type="submit"
+                className="group relative border-[#4831D4] text-[#4831D4] rounded-none h-[56px] w-[250px] overflow-hidden transition-colors duration-300 ease-in-out"
+              >
+                <span className="absolute inset-0 w-0 bg-[#4831D4] transition-all duration-500 ease-in-out group-hover:w-full" />
+                <span className="uppercase text-sm tracking-wider font-medium text-[#4831D4] group-hover:text-white relative z-10 transition-colors duration-300">
+                  Envia!
+                </span>
+                <MoveRight className="h-4 w-4 text-[#4831D4] group-hover:text-white relative z-10 transition-colors duration-300" />
+              </Button>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
-  )
+  );
 }
