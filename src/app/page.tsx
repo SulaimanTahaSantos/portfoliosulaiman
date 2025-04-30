@@ -224,15 +224,22 @@ export default function Home() {
                 <div className="flex justify-end mb-4">
                   <X className="h-5 w-5 text-[#4834C9] cursor-pointer" />
                 </div>
-                <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
-                  Mis proyectos
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
-                  Inicio
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
-                  Mi CV
-                </DropdownMenuItem>
+                <Link href="/" passHref>
+                  <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
+                    Inicio
+                  </DropdownMenuItem>
+                </Link>
+
+                <Link href="/proyectos" passHref>
+                  <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
+                    Mis proyectos
+                  </DropdownMenuItem>
+                </Link>
+                <Link href="/cv" passHref>
+                  <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
+                    Mi CV
+                  </DropdownMenuItem>
+                </Link>
 
                 <div className="flex gap-4 mt-6">
                   <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
@@ -331,42 +338,6 @@ export default function Home() {
 
           <div className="absolute bottom-8 right-8 w-4 h-4 border-2 border-[#4834C9]"></div>
         </div>
-      </div>
-      <div className="lg:hidden absolute top-8 right-8">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon" className="text-[#C5FF4A]">
-              <Menu className="h-8 w-8" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-64 mr-4 bg-white rounded-none p-6 border-none shadow-lg">
-            <div className="flex justify-end mb-4">
-              <X className="h-5 w-5 text-[#4834C9] cursor-pointer" />
-            </div>
-            <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
-              Mis proyectos
-            </DropdownMenuItem>
-            <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
-              Inicio
-            </DropdownMenuItem>
-            <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
-              Mi CV
-            </DropdownMenuItem>
-
-            <div className="flex gap-4 mt-6">
-              <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
-                <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
-                  GH
-                </p>
-              </Link>
-              <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/">
-                <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
-                  LN
-                </p>
-              </Link>
-            </div>
-          </DropdownMenuContent>
-        </DropdownMenu>
       </div>
       <div ref={div2Ref} className="min-h-screen bg-white">
         <section className="relative py-32 px-4 container mx-auto">
@@ -599,7 +570,7 @@ export default function Home() {
       </div>
       <div
         ref={div6Ref}
-        className="min-h-screen flex flex-col justify-between bg-[#3b1a68] text-white p-8 md:p-16 lg:p-24"
+        className="min-h-screen flex flex-col justify-between bg-[#3b1a68] text-white  p-8 md:p-16 lg:p-24"
       >
         <div className="max-w-6xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-32">
