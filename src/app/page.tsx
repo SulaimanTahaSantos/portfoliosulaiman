@@ -17,6 +17,7 @@ import imagenPerfil from "@/app/images/IMG_6585.jpeg";
 import { useEffect, useState, useRef } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
   const [cambioColor, setCambioColor] = useState(false);
@@ -155,10 +156,33 @@ export default function Home() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Envio:", formData);
-    // Aqui pondremos nustro backend o usando la api de emailjs ya veremos que hacemos.
+    
+    try {
+      const result = await emailjs.send(
+        "service_ipwvt6s",
+        "template_65oc388",
+        {
+          to_name: "Sulaiman",
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          title: `Nuevo mensaje desde el portafolio de  + ${formData.email}`,
+        },
+        "WWfMPEGNwNuYrM-4e"
+      );
+
+      console.log('Email enviado correctamente:', result);
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+      
+    } catch (error) {
+      console.error('Failed to send email:', error);
+    }
   };
 
   return (
@@ -203,11 +227,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 w-32 h-32 border border-[#C5FF4A] rounded-full opacity-20 -ml-16 -mb-16"></div>
         </div>
 
-        <div className="hidden lg:block relative w-2/5 bg-[#C5FF4A]">
-          <div className="fixed top-8 right-8">
+        <div className="lg:block relative w-2/5 bg-[#C5FF4A]">
+          <div className="fixed top-8 right-20">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
