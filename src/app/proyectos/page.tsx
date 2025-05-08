@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import type React from "react";
 
@@ -11,8 +12,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import Footer from "../components/FooterProyectos";
+import { usePathname } from "next/navigation";
 
 export default function Proyectos() {
+  const pathname = usePathname();
   const projects = [
     {
       name: "Tetris",
@@ -56,17 +59,33 @@ export default function Proyectos() {
                 <X className="h-5 w-5 text-[#4834C9] cursor-pointer" />
               </div>
               <Link href="#" passHref>
-                <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-gray-100">
+                <DropdownMenuItem
+                  className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                    pathname === "/proyectos"
+                      ? "text-[#CCEF38]"
+                      : "text-[#4834C9]"
+                  }`}
+                >
                   Mis proyectos
                 </DropdownMenuItem>
               </Link>
+
               <Link href="/" passHref>
-                <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-gray-100">
+                <DropdownMenuItem
+                  className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                    pathname === "/" ? "text-[#CCEF38]" : "text-[#4834C9]"
+                  }`}
+                >
                   Inicio
                 </DropdownMenuItem>
               </Link>
-              <Link href="cv" passHref>
-                <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-gray-100">
+
+              <Link href="/cv" passHref>
+                <DropdownMenuItem
+                  className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                    pathname === "/cv" ? "text-[#CCEF38]" : "text-[#4834C9]"
+                  }`}
+                >
                   Mi CV
                 </DropdownMenuItem>
               </Link>
@@ -115,7 +134,6 @@ export default function Proyectos() {
         </div>
       </main>
       <div className="flex flex-col justify-between min-w-screen mx-0 px-0">
-
         <Footer />
       </div>
     </>
