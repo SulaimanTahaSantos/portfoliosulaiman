@@ -60,7 +60,7 @@ export default function Home() {
             <div className="space-y-1">
               <h3 className="text-sm font-medium text-indigo-600">
                 <Link href={"/"}>
-                  <span className="text-indigo-600">Suleiman.dev</span>
+                  <span className="text-indigo-600">Sulaimaneltaha.com</span>
                 </Link>
               </h3>
               <p className="text-sm text-gray-600">Badalona, España</p>
