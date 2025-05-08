@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Mail, Menu, X,  } from "lucide-react";
 import {
@@ -8,9 +9,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { LinkedinDownload } from "../components/LinkedinDownload";
+import { usePathname } from "next/navigation";
+
 
 
 export default function Home() {
+  const pathname = usePathname();
   return (
     <div className="min-h-screen bg-slate-50 py-8 px-4 md:px-8 lg:px-16">
       <div className="absolute top-8 right-20">
@@ -25,17 +29,33 @@ export default function Home() {
               <X className="h-5 w-5 text-[#4834C9] cursor-pointer" />
             </div>
             <Link href="/proyectos" passHref>
-              <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-gray-100">
+              <DropdownMenuItem
+                className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                  pathname === "/proyectos"
+                    ? "text-[#CCEF38]"
+                    : "text-[#4834C9]"
+                }`}
+              >
                 Mis proyectos
               </DropdownMenuItem>
             </Link>
+
             <Link href="/" passHref>
-              <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-gray-100">
+              <DropdownMenuItem
+                className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                  pathname === "/" ? "text-[#CCEF38]" : "text-[#4834C9]"
+                }`}
+              >
                 Inicio
               </DropdownMenuItem>
             </Link>
-            <Link href="#" passHref>
-              <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-gray-100">
+
+            <Link href="/cv" passHref>
+              <DropdownMenuItem
+                className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                  pathname === "/cv" ? "text-[#CCEF38]" : "text-[#4834C9]"
+                }`}
+              >
                 Mi CV
               </DropdownMenuItem>
             </Link>

@@ -1,3 +1,4 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import type { RefObject } from "react";
-
+import { usePathname } from "next/navigation";
 interface HeaderProps {
   divRef: RefObject<HTMLDivElement | null>;
   imagenPerfil: StaticImageData;
@@ -21,6 +22,8 @@ export default function Header({
   imagenPerfil,
   cambioColor,
 }: HeaderProps) {
+const pathname = usePathname();
+
   return (
     <div ref={divRef} className="flex min-h-screen">
       <div className="relative w-full lg:w-3/5 bg-[#4834C9] text-[#C5FF4A] p-8 md:p-16 flex flex-col">
@@ -81,18 +84,32 @@ export default function Header({
                 <X className="h-5 w-5 text-[#4834C9] cursor-pointer" />
               </div>
               <Link href="/" passHref>
-                <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
+                <DropdownMenuItem
+                  className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                    pathname === "/" ? "text-[#CCEF38]" : "text-[#4834C9]"
+                  }`}
+                >
                   Inicio
                 </DropdownMenuItem>
               </Link>
 
               <Link href="/proyectos" passHref>
-                <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
+                <DropdownMenuItem
+                  className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                    pathname === "/proyectos"
+                      ? "text-[#CCEF38]"
+                      : "text-[#4834C9]"
+                  }`}
+                >
                   Mis proyectos
                 </DropdownMenuItem>
               </Link>
               <Link href="/cv" passHref>
-                <DropdownMenuItem className="text-[#4834C9] text-lg font-medium py-2 hover:bg-transparent hover:text-[#4834C9]/80 focus:bg-transparent">
+                <DropdownMenuItem
+                  className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                    pathname === "/cv" ? "text-[#CCEF38]" : "text-[#4834C9]"
+                  }`}
+                >
                   Mi CV
                 </DropdownMenuItem>
               </Link>
