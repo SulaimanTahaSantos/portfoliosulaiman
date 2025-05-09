@@ -56,7 +56,7 @@ export default function SkillsSection({ divRef }: SkillsSectionProps) {
         </div>
       </BrowserView>
       <MobileView>
-        <div ref={divRef} className="min-h-screen bg-white px-6 py-12">
+        <div ref={divRef} className="min-h-screen bg-white px-6 py-20">
           <section className="mb-16">
             <h2 className="text-5xl font-bold text-[#4834C9] mb-4">Diseño</h2>
             <p className="text-gray-600 text-base leading-relaxed">
