@@ -84,7 +84,6 @@ export default function FooterSection({ divRef }: FooterSectionProps) {
         >
          
 
-          {/* Contenido principal */}
           <div className="w-full pt-16">
             <div className="grid grid-cols-2 gap-10">
               <div>
@@ -115,14 +114,12 @@ export default function FooterSection({ divRef }: FooterSectionProps) {
             </div>
           </div>
 
-          {/* Botón circular en la esquina inferior izquierda */}
           <div className="absolute bottom-24 left-6">
             <div className="h-8 w-8 rounded-full bg-black flex items-center justify-center">
               <span className="text-white font-bold">N</span>
             </div>
           </div>
 
-          {/* Footer */}
           <footer className="w-full mt-auto">
             <div className="border-t border-[#5a3a87] pt-6 w-full">
               <div className="flex justify-between items-center">
