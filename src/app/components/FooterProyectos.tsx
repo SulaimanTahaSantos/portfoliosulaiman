@@ -15,7 +15,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="block text-[#b9ff64] hover:text-[#d2ff9e] transition-colors"
                 >
-                  Sulaiman.dev
+                  sulaimaneltaha.com
                 </a>
               </p>
             </div>
