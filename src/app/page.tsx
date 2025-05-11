@@ -30,6 +30,9 @@ export default function Home() {
       "Hola, me encantó tu portafolio y el estilo de tus diseños. Estoy buscando a alguien que me ayude a desarrollar la identidad visual de una marca personal que estoy lanzando. ¿Tienes disponibilidad para una reunión esta semana? ¡Gracias!",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const refsSecciones = [
     div1Ref,
     div2Ref,
@@ -153,6 +156,9 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    setIsLoading(true);
+    setIsSuccess(false);
+
     try {
       const result = await emailjs.send(
         "service_ipwvt6s",
@@ -168,6 +174,7 @@ export default function Home() {
       );
 
       console.log("Email enviado correctamente:", result);
+      setIsSuccess(true);
       setFormData({
         name: "",
         email: "",
@@ -175,6 +182,8 @@ export default function Home() {
       });
     } catch (error) {
       console.error("Failed to send email:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -193,6 +202,8 @@ export default function Home() {
         formData={formData}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        isLoading={isLoading}
+        isSuccess={isSuccess}
       />
       <FooterSection divRef={div6Ref} />
     </main>
