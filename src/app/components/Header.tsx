@@ -17,6 +17,7 @@ interface HeaderProps {
   cambioColor: boolean;
 }
 import { BrowserView, MobileView } from "react-device-detect";
+import { useState } from "react";
 
 export default function Header({
   divRef,
@@ -24,6 +25,8 @@ export default function Header({
   cambioColor,
 }: HeaderProps) {
 const pathname = usePathname();
+const [open, setOpen] = useState(false);
+
 
   return (
     <>
@@ -71,68 +74,69 @@ const pathname = usePathname();
           </div>
 
           <div className="lg:block relative w-2/5 bg-[#C5FF4A]">
-            <div className="fixed top-8 right-20">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className={`transition-colors duration-300 ${
-                      cambioColor ? "text-[#CCEF38]" : "text-[#4834C9]"
-                    }`}
-                  >
-                    <Menu className="h-8 w-8" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-64 mr-4 bg-white rounded-none p-6 border-none shadow-lg">
-                  <div className="flex justify-end mb-4">
-                    <X className="h-5 w-5 text-[#4834C9] cursor-pointer" />
-                  </div>
+            <div className="fixed top-8 right-40" style={{ zIndex: 50 }}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className={`transition-colors duration-300 ${
+                  cambioColor ? "text-[#CCEF38]" : "text-[#4834C9]"
+                }`}
+                onClick={() => setOpen(!open)}
+              >
+                {open ? (
+                  <X className="h-8 w-8" />
+                ) : (
+                  <Menu className="h-8 w-8" />
+                )}
+              </Button>
+
+              {open && (
+                <div className="absolute top-12 right-0 w-64 bg-white rounded-none p-6 border-none shadow-lg">
                   <Link href="/" passHref>
-                    <DropdownMenuItem
-                      className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                    <div
+                      className={`text-lg font-medium py-2 cursor-pointer ${
                         pathname === "/" ? "text-[#CCEF38]" : "text-[#4834C9]"
                       }`}
                     >
                       Inicio
-                    </DropdownMenuItem>
+                    </div>
                   </Link>
 
                   <Link href="/proyectos" passHref>
-                    <DropdownMenuItem
-                      className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                    <div
+                      className={`text-lg font-medium py-2 cursor-pointer ${
                         pathname === "/proyectos"
                           ? "text-[#CCEF38]"
                           : "text-[#4834C9]"
                       }`}
                     >
                       Mis proyectos
-                    </DropdownMenuItem>
+                    </div>
                   </Link>
                   <Link href="/cv" passHref>
-                    <DropdownMenuItem
-                      className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
+                    <div
+                      className={`text-lg font-medium py-2 cursor-pointer ${
                         pathname === "/cv" ? "text-[#CCEF38]" : "text-[#4834C9]"
                       }`}
                     >
                       Mi CV
-                    </DropdownMenuItem>
+                    </div>
                   </Link>
 
                   <div className="flex gap-4 mt-6">
                     <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
-                      <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
+                      <p className="text-[#4834C9] hover:text-[#4834C9]/80 p-0">
                         GH
                       </p>
                     </Link>
                     <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/">
-                      <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
+                      <p className="text-[#4834C9] hover:text-[#4834C9]/80 p-0">
                         LN
                       </p>
                     </Link>
                   </div>
-                </DropdownMenuContent>
-              </DropdownMenu>
+                </div>
+              )}
             </div>
 
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
