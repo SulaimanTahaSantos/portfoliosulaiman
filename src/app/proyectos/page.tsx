@@ -52,15 +52,15 @@ export default function Proyectos() {
           <div className="absolute top-8 right-8">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-[#4831D4]">
-                  <Menu className="h-8 w-8" />
+                <Button variant="ghost" size="icon" className="text-[#4831D4]" aria-label="Menu" title="Menu">
+                  <Menu className="h-8 w-8"  />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-64 bg-white rounded-lg p-4 shadow-lg">
                 <div className="flex justify-end mb-4">
                   <X className="h-5 w-5 text-[#4834C9] cursor-pointer" />
                 </div>
-                <Link href="#" passHref>
+                <Link href="#" passHref aria-label="Mis proyectos" title="Mis proyectos">
                   <DropdownMenuItem
                     className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/proyectos"
@@ -72,7 +72,7 @@ export default function Proyectos() {
                   </DropdownMenuItem>
                 </Link>
 
-                <Link href="/" passHref>
+                <Link href="/" passHref aria-label="Inicio" title="Inicio">
                   <DropdownMenuItem
                     className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/" ? "text-[#CCEF38]" : "text-[#4834C9]"
@@ -82,7 +82,7 @@ export default function Proyectos() {
                   </DropdownMenuItem>
                 </Link>
 
-                <Link href="/cv" passHref>
+                <Link href="/cv" passHref aria-label="Mi CV" title="Mi CV">
                   <DropdownMenuItem
                     className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/cv" ? "text-[#CCEF38]" : "text-[#4834C9]"
@@ -93,10 +93,10 @@ export default function Proyectos() {
                 </Link>
 
                 <div className="flex gap-4 mt-6">
-                  <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
+                  <Link href="https://github.com/SulaimanTahaSantos?tab=repositories" aria-label="GitHub" title="GitHub">
                     <p className="text-[#4834C9] hover:text-[#4834C9]/80">GH</p>
                   </Link>
-                  <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/">
+                  <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/" aria-label="LinkedIn" title="LinkedIn">
                     <p className="text-[#4834C9] hover:text-[#4834C9]/80">LN</p>
                   </Link>
                 </div>
@@ -129,6 +129,8 @@ export default function Proyectos() {
                   <Link
                     href={project.url}
                     className="text-[#6B17E6] hover:underline break-words"
+                    aria-label={project.name}
+                    title={project.name}
                   >
                     {project.nameUrl}
                   </Link>
@@ -149,7 +151,7 @@ export default function Proyectos() {
             </h1>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-[#C5FF4A]">
+                <Button variant="ghost" size="icon" className="text-[#C5FF4A]" aria-label="Menu" title="Menu">
                   <Menu className="h-6 w-6" />
                 </Button>
               </DropdownMenuTrigger>
@@ -157,7 +159,7 @@ export default function Proyectos() {
                 <div className="flex justify-end mb-2">
                   <X className="h-4 w-4 text-[#4834C9] cursor-pointer" />
                 </div>
-                <Link href="/" passHref>
+                <Link href="/" passHref aria-label="Inicio" title="Inicio">
                   <DropdownMenuItem
                     className={`text-base font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/" ? "text-[#CCEF38]" : "text-[#4834C9]"
@@ -166,7 +168,7 @@ export default function Proyectos() {
                     Inicio
                   </DropdownMenuItem>
                 </Link>
-                <Link href="/proyectos" passHref>
+                <Link href="/proyectos" passHref aria-label="Mis proyectos" title="Mis proyectos">
                   <DropdownMenuItem
                     className={`text-base font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/proyectos"
@@ -177,7 +179,7 @@ export default function Proyectos() {
                     Mis proyectos
                   </DropdownMenuItem>
                 </Link>
-                <Link href="/cv" passHref>
+                <Link href="/cv" passHref aria-label="Mi CV" title="Mi CV">
                   <DropdownMenuItem
                     className={`text-base font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/cv" ? "text-[#CCEF38]" : "text-[#4834C9]"
@@ -187,12 +189,12 @@ export default function Proyectos() {
                   </DropdownMenuItem>
                 </Link>
                 <div className="flex gap-4 mt-4">
-                  <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
+                  <Link href="https://github.com/SulaimanTahaSantos?tab=repositories" aria-label="GitHub" title="GitHub">
                     <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
                       GH
                     </p>
                   </Link>
-                  <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/">
+                  <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/" aria-label="LinkedIn" title="LinkedIn">
                     <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
                       LN
                     </p>
@@ -231,6 +233,8 @@ export default function Proyectos() {
                     <Link
                       href={project.url}
                       className="text-[#6B17E6] hover:underline break-words"
+                      aria-label={project.name}
+                      title={project.name}
                     >
                       {project.nameUrl}
                     </Link>
