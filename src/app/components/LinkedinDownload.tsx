@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { LinkedinLogo } from "@/app/components/LinkedinLogo";
 import { Download } from "lucide-react";
 import { CVPdf } from "./CVPdf";
 import { pdf } from '@react-pdf/renderer';
@@ -33,7 +32,6 @@ export function LinkedinDownload({ className }: LinkedinDownloadButtonProps) {
       aria-label="Descargar CV"
       title="Descargar CV"
     >
-      <LinkedinLogo  />
       <span>
         <Download  />
       </span>
