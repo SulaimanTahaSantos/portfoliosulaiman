@@ -30,6 +30,8 @@ export default function ProjectsSection({ divRef }: ProjectsSectionProps) {
                     variant="outline"
                     className="group relative border-[#4831D4] text-[#4831D4] rounded-none h-[56px] w-[250px] overflow-hidden transition-colors duration-300 ease-in-out"
                     asChild
+                    aria-label="Ver mis proyectos"
+                    title="Ver mis proyectos"
                   >
                     <Link href="/proyectos" className="flex items-center gap-4">
                       <span className="absolute inset-0 w-0 bg-[#4831D4] transition-all duration-500 ease-in-out group-hover:w-full" />
@@ -55,6 +57,8 @@ export default function ProjectsSection({ divRef }: ProjectsSectionProps) {
                     variant="outline"
                     className="group relative border-[#4831D4] text-[#4831D4] rounded-none h-[56px] w-[250px] overflow-hidden transition-colors duration-300 ease-in-out"
                     asChild
+                    aria-label="Ver mi CV"
+                    title="Ver mi CV"
                   >
                     <Link href="/cv" className="flex items-center gap-4">
                       <span className="absolute inset-0 w-0 bg-[#4831D4] transition-all duration-500 ease-in-out group-hover:w-full" />
@@ -89,6 +93,8 @@ export default function ProjectsSection({ divRef }: ProjectsSectionProps) {
                     <Link
                       href="/proyectos"
                       className="inline-flex items-center justify-center gap-2 border border-[#4831D4] text-[#4831D4] py-3 px-6 uppercase text-sm tracking-wider font-medium"
+                      aria-label="Ver mis proyectos"
+                      title="Ver mis proyectos"
                     >
                       Ver mis proyectos
                       <MoveRight className="h-4 w-4" />
@@ -110,6 +116,8 @@ export default function ProjectsSection({ divRef }: ProjectsSectionProps) {
                     <Link
                       href="/cv"
                       className="inline-flex items-center justify-center gap-2 border border-[#4831D4] text-[#4831D4] py-3 px-6 uppercase text-sm tracking-wider font-medium"
+                      aria-label="Ver mi CV"
+                      title="Ver mi CV"
                     >
                       Ver mi CV
                       <MoveRight className="h-4 w-4" />

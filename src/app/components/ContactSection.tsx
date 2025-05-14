@@ -56,7 +56,7 @@ export default function ContactSection({
                 <div className="flex flex-col md:flex-row gap-4 md:gap-8">
                   <div className="flex-1 space-y-2">
                     <label htmlFor="name" className="text-gray-500 text-sm">
-                      Tu nombre
+                      * Nombre
                     </label>
                     <Input
                       type="text"
@@ -66,12 +66,17 @@ export default function ContactSection({
                       onChange={handleChange}
                       placeholder="Enter your name"
                       className="w-full border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-purple-600"
+                      required
+                      aria-required="true"
+                      aria-invalid={
+                        formData.name.trim() === "" ? "true" : "false"
+                      }
                     />
                   </div>
 
                   <div className="flex-1 space-y-2">
                     <label htmlFor="email" className="text-gray-500 text-sm">
-                      Tu Email
+                      * Email
                     </label>
                     <Input
                       type="email"
@@ -81,6 +86,11 @@ export default function ContactSection({
                       onChange={handleChange}
                       placeholder="Enter your email address"
                       className="w-full border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-purple-600"
+                      required
+                      aria-required="true"
+                      aria-invalid={
+                        formData.email.trim() === "" ? "true" : "false"
+                      }
                     />
                   </div>
                 </div>
@@ -95,6 +105,9 @@ export default function ContactSection({
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full min-h-[120px] border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-purple-600 resize-none"
+                    required
+                    aria-required="true"
+                    aria-invalid={!formData.message ? "true" : "false"}
                   />
                 </div>
               </div>
@@ -105,6 +118,8 @@ export default function ContactSection({
                   type="submit"
                   disabled={isLoading || !isFormValid}
                   className="group relative border-[#4831D4] text-[#4831D4] rounded-none h-[56px] w-[250px] overflow-hidden transition-colors duration-300 ease-in-out"
+                  aria-busy={isLoading ? "true" : "false"}
+                  aria-disabled={isLoading || !isFormValid}
                 >
                   {isLoading ? (
                     <div className="flex items-center gap-2">
@@ -164,7 +179,7 @@ export default function ContactSection({
                     htmlFor="name-mobile"
                     className="text-gray-500 text-sm"
                   >
-                    Tu nombre
+                   * Nombre
                   </label>
                   <Input
                     type="text"
@@ -174,6 +189,11 @@ export default function ContactSection({
                     onChange={handleChange}
                     placeholder="Enter your name"
                     className="w-full border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-[#4831D4]"
+                    required
+                    aria-required="true"
+                    aria-invalid={
+                      formData.name.trim() === "" ? "true" : "false"
+                    }
                   />
                 </div>
 
@@ -182,7 +202,7 @@ export default function ContactSection({
                     htmlFor="email-mobile"
                     className="text-gray-500 text-sm"
                   >
-                    Tu Email
+                    *Email
                   </label>
                   <Input
                     type="email"
@@ -192,6 +212,11 @@ export default function ContactSection({
                     onChange={handleChange}
                     placeholder="Enter your email address"
                     className="w-full border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-[#4831D4]"
+                    required
+                    aria-required="true"
+                    aria-invalid={
+                      formData.email.trim() === "" ? "true" : "false"
+                    }
                   />
                 </div>
 
@@ -209,6 +234,9 @@ export default function ContactSection({
                     onChange={handleChange}
                     placeholder="Hola, me encantó tu portafolio y el estilo de tus diseños. Estoy buscando a alguien que me ayude a desarrollar la identidad visual de una marca personal que estoy lanzando. ¿Tienes disponibilidad para una reunión esta semana? ¡Gracias!"
                     className="w-full min-h-[150px] border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-[#4831D4] resize-none"
+                    required
+                    aria-required="true"
+                    aria-invalid={!formData.message ? "true" : "false"}
                   />
                 </div>
               </div>
@@ -217,8 +245,10 @@ export default function ContactSection({
                 <Button
                   variant="outline"
                   type="submit"
-                  disabled={isLoading || !isFormValid}     
+                  disabled={isLoading || !isFormValid}
                   className="border border-[#4831D4] text-[#4831D4] rounded-none py-2 px-10 flex items-center gap-2"
+                  aria-busy={isLoading ? "true" : "false"}
+                  aria-disabled={isLoading || !isFormValid}
                 >
                   {isLoading ? (
                     <div className="flex items-center gap-2">
