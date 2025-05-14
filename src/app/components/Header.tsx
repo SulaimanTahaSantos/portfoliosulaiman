@@ -63,8 +63,7 @@ const [open, setOpen] = useState(false);
                 </div>
                 <div>
                   <p className="text-white text-sm md:text-base max-w-xs">
-                    Mi experiencia incluye desarrollo de sistemas
-                    medioambientales, colaboración en un proyecto de RRHH con
+                    Mi experiencia incluye desarrollo con
                     Symfony y React (Tailwind y MaterialUI), y trabajo freelance
                     con PHP y MySQL.
                   </p>
