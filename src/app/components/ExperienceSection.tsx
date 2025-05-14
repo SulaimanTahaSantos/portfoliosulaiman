@@ -23,8 +23,7 @@ export default function ExperienceSection({
 
               <div className="space-y-6">
                 <p className="text-lg">
-                  Mi carrera informática comenzó como Técnico de Sistemas en
-                  Centre FP Llefià, donde administraba redes Windows/Linux,
+                  Mi carrera informática comenzó como Técnico de Sistemas, donde administraba redes Windows/Linux,
                   automatizaba copias de seguridad y documentaba procesos
                   críticos.
                 </p>
@@ -40,7 +39,7 @@ export default function ExperienceSection({
                   Actualmente soy Full‑stack Developer en prácticas, donde desarrollo y mantengo una
                   plataforma React + Symfony: implementé Tailwind CSS, rediseñé
                   los flujos de autenticación y optimicé consultas para mejorar
-                  el rendimiento de SMNET.
+                  el rendimiento.
                 </p>
 
                 <p className="text-lg">
@@ -77,8 +76,7 @@ export default function ExperienceSection({
 
             <div className="flex flex-col space-y-6">
               <p className="text-base">
-                Mi carrera informática comenzó como Técnico de Sistemas en
-                Centre FP Llefià, donde administraba redes Windows/Linux,
+                Mi carrera informática comenzó como Técnico de Sistemas , donde administraba redes Windows/Linux,
                 automatizaba copias de seguridad y documentaba procesos
                 críticos.
               </p>
