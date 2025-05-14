@@ -24,7 +24,7 @@ export default function CvMobile() {
             </h1>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-[#C5FF4A]">
+                <Button variant="ghost" size="icon" className="text-[#C5FF4A]" aria-label="Menu" title="Menu" >
                   <Menu className="h-6 w-6" />
                 </Button>
               </DropdownMenuTrigger>
@@ -32,7 +32,7 @@ export default function CvMobile() {
                 <div className="flex justify-end mb-2">
                   <X className="h-4 w-4 text-[#4834C9] cursor-pointer" />
                 </div>
-                <Link href="/" passHref>
+                <Link href="/" passHref aria-label="Inicio" title="Inicio">
                   <DropdownMenuItem
                     className={`text-base font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/" ? "text-[#CCEF38]" : "text-[#4834C9]"
@@ -41,7 +41,7 @@ export default function CvMobile() {
                     Inicio
                   </DropdownMenuItem>
                 </Link>
-                <Link href="/proyectos" passHref>
+                <Link href="/proyectos" passHref aria-label="Proyectos" title="Proyectos">
                   <DropdownMenuItem
                     className={`text-base font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/proyectos"
@@ -52,7 +52,7 @@ export default function CvMobile() {
                     Mis proyectos
                   </DropdownMenuItem>
                 </Link>
-                <Link href="/cv" passHref>
+                <Link href="/cv" passHref aria-label="CV" title="CV">
                   <DropdownMenuItem
                     className={`text-base font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/cv" ? "text-[#CCEF38]" : "text-[#4834C9]"
@@ -62,12 +62,12 @@ export default function CvMobile() {
                   </DropdownMenuItem>
                 </Link>
                 <div className="flex gap-4 mt-4">
-                  <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
+                  <Link href="https://github.com/SulaimanTahaSantos?tab=repositories" aria-label="GitHub" title="GitHub">
                     <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
                       GH
                     </p>
                   </Link>
-                  <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/">
+                  <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/" aria-label="LinkedIn" title="LinkedIn">
                     <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
                       LN
                     </p>
@@ -93,12 +93,14 @@ export default function CvMobile() {
                 <Link
                   href="https://mail.google.com/mail/?view=cm&to=sulat3821@gmail.com"
                   className="text-gray-600 hover:text-indigo-600 flex items-center gap-1"
+                  aria-label="Email"
+                  title="Email"
                 >
-                  <Mail className="h-3 w-3" />
+                  <Mail className="h-3 w-3" aria-label="email" />
                   sulat3821@gmail.com
                 </Link>
                 <div className="flex gap-4 mt-2">
-                  <LinkedinDownload />
+                  <LinkedinDownload  />
                 </div>
               </div>
 
@@ -414,6 +416,8 @@ export default function CvMobile() {
                         href={cert.url}
                         className="hover:text-indigo-600 hover:underline flex items-start gap-1"
                         target="_blank"
+                        aria-label="Certificación"
+                        title="Certificación"
                       >
                         <span className="text-indigo-600">•</span>
                         {cert.name}

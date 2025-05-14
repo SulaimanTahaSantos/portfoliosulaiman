@@ -21,7 +21,7 @@ export default function CvDesktop() {
           <div className="absolute top-8 right-20">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-[#4831D4]">
+                <Button variant="ghost" size="icon" className="text-[#4831D4]" aria-label="Menu" title="Menu">
                   <Menu className="h-8 w-8" />
                 </Button>
               </DropdownMenuTrigger>
@@ -41,7 +41,7 @@ export default function CvDesktop() {
                   </DropdownMenuItem>
                 </Link>
 
-                <Link href="/" passHref>
+                <Link href="/" passHref aria-label="Inicio" title="Inicio">
                   <DropdownMenuItem
                     className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/" ? "text-[#CCEF38]" : "text-[#4834C9]"
@@ -51,7 +51,7 @@ export default function CvDesktop() {
                   </DropdownMenuItem>
                 </Link>
 
-                <Link href="/cv" passHref>
+                <Link href="/cv" passHref aria-label="CV" title="CV">
                   <DropdownMenuItem
                     className={`text-lg font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/cv" ? "text-[#CCEF38]" : "text-[#4834C9]"
@@ -62,10 +62,10 @@ export default function CvDesktop() {
                 </Link>
 
                 <div className="flex gap-4 mt-6">
-                  <Link href="https://github.com/SulaimanTahaSantos?tab=repositories">
+                  <Link href="https://github.com/SulaimanTahaSantos?tab=repositories" aria-label="GitHub" title="GitHub">
                     <p className="text-[#4834C9] hover:text-[#4834C9]/80">GH</p>
                   </Link>
-                  <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/">
+                  <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/" aria-label="LinkedIn" title="LinkedIn">
                     <p className="text-[#4834C9] hover:text-[#4834C9]/80">LN</p>
                   </Link>
                 </div>
@@ -80,7 +80,7 @@ export default function CvDesktop() {
               <aside className="space-y-8">
                 <div className="space-y-1">
                   <h3 className="text-sm font-medium text-indigo-600">
-                    <Link href={"/"}>
+                    <Link href={"/"} aria-label="Inicio" title="Inicio">
                       <span className="text-indigo-600">
                         Sulaimaneltaha.com
                       </span>
@@ -90,8 +90,10 @@ export default function CvDesktop() {
                   <Link
                     href="https://mail.google.com/mail/?view=cm&to=sulat3821@gmail.com"
                     className="text-sm text-gray-600 hover:text-indigo-600 flex items-center gap-1"
+                    aria-label="Email"
+                    title="Email"
                   >
-                    <Mail className="h-3 w-3" />
+                    <Mail className="h-3 w-3" aria-label="email" />
                     sulat3821@gmail.com
                   </Link>
                 </div>
@@ -192,6 +194,8 @@ export default function CvDesktop() {
                           href={cert.url}
                           className="hover:text-indigo-600 hover:underline"
                           target="_blank"
+                          aria-label="Certificación"
+                          title="Certificación"
                         >
                           {cert.name}
                         </Link>
@@ -403,7 +407,7 @@ export default function CvDesktop() {
                         <h3 className="text-lg font-medium">
                           <span className="text-indigo-600">
                             Centro FP Llefia
-                          </span>{" "}
+                          </span>
                           — Técnico de sistemas
                         </h3>
                         <span className="text-sm text-gray-500">
