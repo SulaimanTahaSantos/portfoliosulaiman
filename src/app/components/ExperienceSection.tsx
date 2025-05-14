@@ -72,7 +72,7 @@ export default function ExperienceSection({
           className="min-h-screen bg-[#4834c4] text-white relative"
         >
           <div className="px-6 py-20 pb-20">
-            <h1 className="text-[#c1ff72] text-4xl font-bold leading-tight mb-8">
+            <h1 className="text-[#c1ff72] text-3xl font-bold leading-tight mb-8">
               Experiencia/Trayectoria
             </h1>
 
@@ -106,7 +106,7 @@ export default function ExperienceSection({
               </p>
             </div>
           </div>
-          <div className="flex justify-center -mt-13">
+          <div className="flex justify-center -mt-15">
             <Image
               src={imagenPerfil || "/placeholder.svg"}
               width={200}
