@@ -37,8 +37,7 @@ export default function ExperienceSection({
                 </p>
 
                 <p className="text-lg">
-                  Actualmente soy Full‑stack Developer en prácticas en SM
-                  Sistemas Medioambientales, donde desarrollo y mantengo una
+                  Actualmente soy Full‑stack Developer en prácticas, donde desarrollo y mantengo una
                   plataforma React + Symfony: implementé Tailwind CSS, rediseñé
                   los flujos de autenticación y optimicé consultas para mejorar
                   el rendimiento de SMNET.
@@ -46,7 +45,7 @@ export default function ExperienceSection({
 
                 <p className="text-lg">
                   Anteriormente colaboré como Desarrollador Back‑end freelance
-                  en Grupo Guaraní, mejorando un sistema de facturación en
+                  , mejorando un sistema de facturación en
                   PHP/MySQL y generando documentos PDF bajo metodología Agile.
                 </p>
               </div>
