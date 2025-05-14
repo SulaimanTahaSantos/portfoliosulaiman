@@ -5,7 +5,6 @@ import type React from "react";
 import emailjs from "@emailjs/browser";
 import imagenPerfil from "@/app/images/IMG_6585.jpeg";
 
-// Importamos los componentes de sección
 import Header from "@/app/components/Header";
 import SkillsSection from "@/app/components/SkillsSection";
 import ExperienceSection from "@/app/components/ExperienceSection";

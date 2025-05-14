@@ -28,15 +28,26 @@ export default function ContactSection({
   isLoading = false,
   isSuccess = false,
 }: ContactSectionProps) {
+  const isFormValid =
+    formData.name.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    formData.message.trim() !== "";
+
   return (
     <>
       <BrowserView>
-        <div ref={divRef} className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div
+          ref={divRef}
+          className="min-h-screen bg-gray-50 flex items-center justify-center p-4"
+        >
           <div className="max-w-xl w-full mx-auto">
             <div className="text-center mb-10">
-              <h1 className="text-4xl md:text-5xl font-bold text-purple-600 mb-4">Mandame un mensaje !</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-purple-600 mb-4">
+                Mandame un mensaje !
+              </h1>
               <p className="text-gray-600">
-                Tienes alguna pregunta o propuesta, o simplemente quieres saludar? adelante
+                Tienes alguna pregunta o propuesta, o simplemente quieres
+                saludar? adelante
               </p>
             </div>
 
@@ -92,7 +103,7 @@ export default function ContactSection({
                 <Button
                   variant="outline"
                   type="submit"
-                  disabled={isLoading}
+                  disabled={isLoading || !isFormValid}
                   className="group relative border-[#4831D4] text-[#4831D4] rounded-none h-[56px] w-[250px] overflow-hidden transition-colors duration-300 ease-in-out"
                 >
                   {isLoading ? (
@@ -118,28 +129,41 @@ export default function ContactSection({
               <div className="mt-8 p-4 bg-green-50 border border-green-200 rounded-md text-center transform transition-all duration-300 opacity-100 translate-y-0">
                 <div className="flex items-center justify-center gap-2 text-green-600 mb-2">
                   <CheckCircle className="h-5 w-5" />
-                  <span className="font-medium">¡Mensaje enviado correctamente!</span>
+                  <span className="font-medium">
+                    ¡Mensaje enviado correctamente!
+                  </span>
                 </div>
-                <p className="text-green-700 text-sm">Gracias por contactarme. Te responderé lo antes posible.</p>
+                <p className="text-green-700 text-sm">
+                  Gracias por contactarme. Te responderé lo antes posible.
+                </p>
               </div>
             )}
           </div>
         </div>
       </BrowserView>
       <MobileView>
-        <div ref={divRef} className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+        <div
+          ref={divRef}
+          className="min-h-screen bg-gray-50 flex items-center justify-center p-6"
+        >
           <div className="w-full max-w-md">
             <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#4831D4] mb-3">Mandame un mensaje !</h1>
+              <h1 className="text-3xl font-bold text-[#4831D4] mb-3">
+                Mandame un mensaje !
+              </h1>
               <p className="text-gray-600 text-sm">
-                Tienes alguna pregunta o propuesta, o simplemente quieres saludar? adelante
+                Tienes alguna pregunta o propuesta, o simplemente quieres
+                saludar? adelante
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <label htmlFor="name-mobile" className="text-gray-500 text-sm">
+                  <label
+                    htmlFor="name-mobile"
+                    className="text-gray-500 text-sm"
+                  >
                     Tu nombre
                   </label>
                   <Input
@@ -154,7 +178,10 @@ export default function ContactSection({
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="email-mobile" className="text-gray-500 text-sm">
+                  <label
+                    htmlFor="email-mobile"
+                    className="text-gray-500 text-sm"
+                  >
                     Tu Email
                   </label>
                   <Input
@@ -169,7 +196,10 @@ export default function ContactSection({
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message-mobile" className="text-gray-500 text-sm">
+                  <label
+                    htmlFor="message-mobile"
+                    className="text-gray-500 text-sm"
+                  >
                     Tu mensaje
                   </label>
                   <Textarea
@@ -187,17 +217,21 @@ export default function ContactSection({
                 <Button
                   variant="outline"
                   type="submit"
-                  disabled={isLoading}
+                  disabled={isLoading || !isFormValid}     
                   className="border border-[#4831D4] text-[#4831D4] rounded-none py-2 px-10 flex items-center gap-2"
                 >
                   {isLoading ? (
                     <div className="flex items-center gap-2">
                       <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#4831D4] border-t-transparent"></div>
-                      <span className="uppercase text-sm tracking-wider font-medium">Enviando...</span>
+                      <span className="uppercase text-sm tracking-wider font-medium">
+                        Enviando...
+                      </span>
                     </div>
                   ) : (
                     <>
-                      <span className="uppercase text-sm tracking-wider font-medium">ENVÍA!</span>
+                      <span className="uppercase text-sm tracking-wider font-medium">
+                        ENVÍA!
+                      </span>
                       <MoveRight className="h-4 w-4" />
                     </>
                   )}
@@ -208,14 +242,18 @@ export default function ContactSection({
               <div className="mt-8 p-4 bg-green-50 border border-green-200 rounded-md text-center transform transition-all duration-300 opacity-100 translate-y-0">
                 <div className="flex items-center justify-center gap-2 text-green-600 mb-2">
                   <CheckCircle className="h-5 w-5" />
-                  <span className="font-medium">¡Mensaje enviado correctamente!</span>
+                  <span className="font-medium">
+                    ¡Mensaje enviado correctamente!
+                  </span>
                 </div>
-                <p className="text-green-700 text-sm">Gracias por contactarme. Te responderé lo antes posible.</p>
+                <p className="text-green-700 text-sm">
+                  Gracias por contactarme. Te responderé lo antes posible.
+                </p>
               </div>
             )}
           </div>
         </div>
       </MobileView>
     </>
-  )
+  );
 }
