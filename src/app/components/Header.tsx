@@ -63,8 +63,7 @@ const [open, setOpen] = useState(false);
                 </div>
                 <div>
                   <p className="text-white text-sm md:text-base max-w-xs">
-                    Mi experiencia incluye desarrollo de sistemas
-                    medioambientales, colaboración en un proyecto de RRHH con
+                    Mi experiencia incluye desarrollo con
                     Symfony y React (Tailwind y MaterialUI), y trabajo freelance
                     con PHP y MySQL.
                   </p>
@@ -397,8 +396,7 @@ const [open, setOpen] = useState(false);
               <div>
                 <h3 className="text-lg font-semibold mb-2">Mi experiencia:</h3>
                 <p className="text-white text-sm max-w-full">
-                  Mi experiencia incluye desarrollo de sistemas
-                  medioambientales, colaboración en un proyecto de RRHH con
+                  Mi experiencia incluye desarrollo con
                   Symfony y React (Tailwind y MaterialUI), y trabajo freelance
                   con PHP y MySQL.
                 </p>

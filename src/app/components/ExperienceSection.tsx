@@ -23,8 +23,7 @@ export default function ExperienceSection({
 
               <div className="space-y-6">
                 <p className="text-lg">
-                  Mi carrera informática comenzó como Técnico de Sistemas en
-                  Centre FP Llefià, donde administraba redes Windows/Linux,
+                  Mi carrera informática comenzó como Técnico de Sistemas, donde administraba redes Windows/Linux,
                   automatizaba copias de seguridad y documentaba procesos
                   críticos.
                 </p>
@@ -37,16 +36,15 @@ export default function ExperienceSection({
                 </p>
 
                 <p className="text-lg">
-                  Actualmente soy Full‑stack Developer en prácticas en SM
-                  Sistemas Medioambientales, donde desarrollo y mantengo una
+                  Actualmente soy Full‑stack Developer en prácticas, donde desarrollo y mantengo una
                   plataforma React + Symfony: implementé Tailwind CSS, rediseñé
                   los flujos de autenticación y optimicé consultas para mejorar
-                  el rendimiento de SMNET.
+                  el rendimiento.
                 </p>
 
                 <p className="text-lg">
                   Anteriormente colaboré como Desarrollador Back‑end freelance
-                  en Grupo Guaraní, mejorando un sistema de facturación en
+                  , mejorando un sistema de facturación en
                   PHP/MySQL y generando documentos PDF bajo metodología Agile.
                 </p>
               </div>
@@ -78,8 +76,7 @@ export default function ExperienceSection({
 
             <div className="flex flex-col space-y-6">
               <p className="text-base">
-                Mi carrera informática comenzó como Técnico de Sistemas en
-                Centre FP Llefià, donde administraba redes Windows/Linux,
+                Mi carrera informática comenzó como Técnico de Sistemas , donde administraba redes Windows/Linux,
                 automatizaba copias de seguridad y documentaba procesos
                 críticos.
               </p>
@@ -103,7 +100,7 @@ export default function ExperienceSection({
               </p>
             </div>
           </div>
-          <div className="flex justify-center -mt-17">
+          <div className="flex justify-center -mt-18">
             <Image
               src={imagenPerfil || "/placeholder.svg"}
               width={200}
