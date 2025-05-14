@@ -106,7 +106,7 @@ export default function ExperienceSection({
               </p>
             </div>
           </div>
-          <div className="flex justify-center -mt-15">
+          <div className="flex justify-center -mt-17">
             <Image
               src={imagenPerfil || "/placeholder.svg"}
               width={200}
