@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaPhp, FaJava, FaNodeJs, FaReact, FaCode } from 'react-icons/fa';
-import { SiTypescript, SiNextdotjs, SiMysql, SiPostgresql, SiUnrealengine, SiTailwindcss, SiMui, SiBulma, SiSymfony, SiLaravel, SiPython } from 'react-icons/si';
+import { SiTypescript, SiNextdotjs, SiMysql, SiPostgresql, SiUnrealengine, SiTailwindcss, SiMui, SiBulma, SiSymfony, SiLaravel, SiPython, SiGithub } from 'react-icons/si';
 
 const TechIcons = () => {
   return (
@@ -24,6 +24,7 @@ const TechIcons = () => {
       <SiTailwindcss size={40} title="Tailwind CSS" />
       <SiMui size={40} title="Material UI" />
       <SiBulma size={40} title="Bulma" /> 
+      <SiGithub size={40} title="GitHub" />
     </div>
   );
 };

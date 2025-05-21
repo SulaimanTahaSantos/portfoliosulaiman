@@ -19,7 +19,6 @@ interface HeaderProps {
 import { BrowserView, MobileView } from "react-device-detect";
 import { useState } from "react";
 import TechIcons from "./TechIcons";
-import Experience from "./Experience";
 
 
 export default function Header({

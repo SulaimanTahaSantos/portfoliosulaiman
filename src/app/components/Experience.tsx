@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaPhp,  FaReact } from 'react-icons/fa';
-import {SiMysql,SiTailwindcss, SiMui, SiSymfony } from 'react-icons/si';
+import {SiMysql,SiTailwindcss, SiMui, SiSymfony, SiGithub } from 'react-icons/si';
 
 const Experience = () => {
   return (
@@ -14,6 +14,7 @@ const Experience = () => {
           <SiMysql size={40} title="MySQL" />
           <SiTailwindcss size={40} title="Tailwind CSS" />
           <SiMui size={40} title="Material UI" />
+        <SiGithub size={40} title="GitHub" />
         </div>
   );
 };
