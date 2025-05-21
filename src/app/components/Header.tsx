@@ -18,6 +18,9 @@ interface HeaderProps {
 }
 import { BrowserView, MobileView } from "react-device-detect";
 import { useState } from "react";
+import TechIcons from "./TechIcons";
+import Experience from "./Experience";
+
 
 export default function Header({
   divRef,
@@ -45,27 +48,15 @@ const [open, setOpen] = useState(false);
               </h2>
 
               <p className="mt-8 text-white text-lg md:text-xl max-w-md">
-                Soy un desarrollador de 23 años con pasión por aprender,
-                trabajar y crecer profesionalmente. Me destaco por mi capacidad
-                de trabajo en equipo, habilidades sociales y organización.
-                Cuando me enfrento a algo nuevo, busco la manera de aprenderlo
-                para mejorar constantemente. Me apasiona tanto el frontend como
-                el backend.
+              Desarrollador Full Stack de 23 años, apasionado por aprender y crecer profesionalmente. Me destaco por mi trabajo en equipo, habilidades sociales y organización.
               </p>
 
               <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-white text-sm md:text-base max-w-xs">
-                    Mis tecnologías: React, HTML, CSS, JavaScript, PHP, Java,
-                    TypeScript, Next.js, Node.js, MySQL, PostgreSQL, XML, C++,
-                    Unreal Engine.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-white text-sm md:text-base max-w-xs">
-                    Mi experiencia incluye desarrollo con
-                    Symfony y React (Tailwind y MaterialUI), y trabajo freelance
-                    con PHP y MySQL.
+                   <strong>Mis tecnologías:</strong>
+                    <br />
+                    <TechIcons />
                   </p>
                 </div>
               </div>
@@ -293,12 +284,7 @@ const [open, setOpen] = useState(false);
               </h2>
 
               <p className="mt-6 text-white text-base max-w-full">
-                Soy un desarrollador de 23 años con pasión por aprender,
-                trabajar y crecer profesionalmente. Me destaco por mi capacidad
-                de trabajo en equipo, habilidades sociales y organización.
-                Cuando me enfrento a algo nuevo, busco la manera de aprenderlo
-                para mejorar constantemente. Me apasiona tanto el frontend como
-                el backend.
+                 Desarrollador Full Stack de 23 años, apasionado por aprender y crecer profesionalmente. Me destaco por mi trabajo en equipo, habilidades sociales y organización.
               </p>
             </div>
           </div>
@@ -391,16 +377,7 @@ const [open, setOpen] = useState(false);
               <div>
                 <h3 className="text-lg font-semibold mb-2">Mis tecnologías:</h3>
                 <p className="text-white text-sm max-w-full">
-                  React, HTML, CSS, JavaScript, PHP, Java, TypeScript, Next.js,
-                  Node.js, MySQL, PostgreSQL, XML, C++, Unreal Engine.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Mi experiencia:</h3>
-                <p className="text-white text-sm max-w-full">
-                  Mi experiencia incluye desarrollo con
-                  Symfony y React (Tailwind y MaterialUI), y trabajo freelance
-                  con PHP y MySQL.
+                 <TechIcons />
                 </p>
               </div>
             </div>
