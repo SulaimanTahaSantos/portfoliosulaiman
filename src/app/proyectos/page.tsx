@@ -37,12 +37,6 @@ export default function Proyectos() {
       nameUrl: "UNOSL",
 
     },
-    {
-      name: "Sistema CRUD para PearOSSulaiman",
-      url: "https://sulaiman.alwaysdata.net/UF3/projectUF3CRUDPHP/theme/login.php",
-      logo: "https://ucarecdn.com/5ff71e4c-1388-4969-835d-1670e49e226d/",
-      nameUrl: "CRUD",
-    },
   ];
 
   return (

@@ -34,7 +34,7 @@ export default function FooterSection({ divRef }: FooterSectionProps) {
               <div>
                 <nav className="space-y-4">
                   <Link
-                    href="#"
+                    href="/proyectos"
                     className="block text-[#b9ff64] hover:text-[#d2ff9e] transition-colors"
                     aria-label="Mis proyectos"
                     title="Mis proyectos"
@@ -42,7 +42,7 @@ export default function FooterSection({ divRef }: FooterSectionProps) {
                     Mis proyectos
                   </Link>
                   <Link
-                    href="#"
+                    href="/cv"
                     className="block text-[#b9ff64] hover:text-[#d2ff9e] transition-colors"
                     aria-label="Mi CV"
                     title="Mi CV"
