@@ -43,7 +43,7 @@ export default function ContactSection({
           <div className="max-w-xl w-full mx-auto">
             <div className="text-center mb-10">
               <h1 className="text-4xl md:text-5xl font-bold text-purple-600 mb-4">
-                Mandame un mensaje !
+                ¡Mandame un mensaje !
               </h1>
               <p className="text-gray-600">
                 Tienes alguna pregunta o propuesta, o simplemente quieres
@@ -64,7 +64,7 @@ export default function ContactSection({
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Enter your name"
+                      placeholder="Introduce tu nombre"
                       className="w-full border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-purple-600"
                       required
                       aria-required="true"
@@ -84,7 +84,7 @@ export default function ContactSection({
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="Enter your email address"
+                      placeholder="Introduce tu email"
                       className="w-full border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-purple-600"
                       required
                       aria-required="true"
@@ -187,7 +187,7 @@ export default function ContactSection({
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Enter your name"
+                    placeholder="Introduce tu nombre"
                     className="w-full border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-[#4831D4]"
                     required
                     aria-required="true"
@@ -210,7 +210,7 @@ export default function ContactSection({
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Enter your email address"
+                    placeholder="Introduce tu email"
                     className="w-full border-0 border-b border-gray-300 rounded-none px-0 py-2 bg-transparent focus-visible:ring-0 focus-visible:border-[#4831D4]"
                     required
                     aria-required="true"

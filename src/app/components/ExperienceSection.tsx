@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import type { RefObject } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
+import Experience from "./Experience";
 
 interface ExperienceSectionProps {
   divRef: RefObject<HTMLDivElement | null>;
@@ -23,30 +24,39 @@ export default function ExperienceSection({
 
               <div className="space-y-6">
                 <p className="text-lg">
-                  Mi carrera informática comenzó como Técnico de Sistemas, donde administraba redes Windows/Linux,
-                  automatizaba copias de seguridad y documentaba procesos
-                  críticos.
+                  Mi carrera informática comenzó como <strong>Técnico de Sistemas</strong>, donde
+                  administraba redes <strong>Windows/Linux</strong>, automatizaba <strong>copias de seguridad</strong> y
+                  documentaba <strong>procesos críticos</strong>.
                 </p>
 
                 <p className="text-lg">
-                  He desarrollado soluciones digitales para diversos sectores,
-                  desde optimización de sistemas internos hasta aplicaciones web
-                  completas, siempre priorizando rendimiento, código limpio y
-                  accesibilidad.
+                  He desarrollado <strong>soluciones digitales</strong> para diversos sectores, desde
+                  <strong> optimización de sistemas internos</strong> hasta <strong>aplicaciones web completas</strong>,
+                  siempre priorizando <strong>rendimiento</strong>, <strong>código limpio</strong> y <strong>accesibilidad</strong>.
                 </p>
 
                 <p className="text-lg">
-                  Actualmente soy Full‑stack Developer en prácticas, donde desarrollo y mantengo una
-                  plataforma React + Symfony: implementé Tailwind CSS, rediseñé
-                  los flujos de autenticación y optimicé consultas para mejorar
-                  el rendimiento.
+                  Actualmente soy <strong>Full‑stack Developer en prácticas</strong>, donde desarrollo y mantengo
+                  una plataforma <strong>React</strong> + <strong>Symfony</strong>: implementé <strong>Tailwind CSS</strong>,
+                  rediseñé los <strong>flujos de autenticación</strong> y optimicé <strong>consultas</strong> para
+                  mejorar el <strong>rendimiento</strong>.
                 </p>
 
                 <p className="text-lg">
-                  Anteriormente colaboré como Desarrollador Back‑end freelance
-                  , mejorando un sistema de facturación en
-                  PHP/MySQL y generando documentos PDF bajo metodología Agile.
+                  Anteriormente colaboré como <strong>Desarrollador Back‑end freelance</strong>,
+                  mejorando un <strong>sistema de facturación</strong> en <strong>PHP/MySQL</strong> y generando
+                  <strong> documentos PDF</strong> bajo metodología <strong>Agile</strong>.
                 </p>
+
+                <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <p className="text-white text-sm md:text-base max-w-xs">
+                      <strong>Experiencia con:</strong>
+                      <br />
+                      <Experience />
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -76,38 +86,35 @@ export default function ExperienceSection({
 
             <div className="flex flex-col space-y-6">
               <p className="text-base">
-                Mi carrera informática comenzó como Técnico de Sistemas , donde administraba redes Windows/Linux,
-                automatizaba copias de seguridad y documentaba procesos
-                críticos.
+                Mi carrera informática comenzó como <strong>Técnico de Sistemas</strong>, donde administraba redes <strong>Windows/Linux</strong>,
+                automatizaba <strong>copias de seguridad</strong> y documentaba <strong>procesos críticos</strong>.
               </p>
 
               <p className="text-base">
-                He desarrollado soluciones digitales para diversos sectores,
-                desde optimización de sistemas internos hasta aplicaciones web
-                completas, siempre priorizando rendimiento, código limpio y
-                accesibilidad.
+                He desarrollado <strong>soluciones digitales</strong> para diversos sectores,
+                desde <strong>optimización de sistemas internos</strong> hasta <strong>aplicaciones web completas</strong>,
+                siempre priorizando <strong>rendimiento</strong>, <strong>código limpio</strong> y <strong>accesibilidad</strong>.
               </p>
 
               <p className="text-base">
-                Actualmente soy Full‑stack Developer en prácticas donde desarrollo y mantengo una plataforma
-                React + Symfony: implementé Tailwind CSS, rediseñé los flujos de
-                autenticación y optimicé consultas para mejorar el rendimiento
+                Actualmente soy <strong>Full‑stack Developer en prácticas</strong> donde desarrollo y mantengo una plataforma
+                <strong> React</strong> + <strong>Symfony</strong>: implementé <strong>Tailwind CSS</strong>, rediseñé los <strong>flujos de autenticación</strong> y optimicé <strong>consultas</strong> para mejorar el <strong>rendimiento</strong>.
               </p>
 
               <p className="text-base">
-                Anteriormente colaboré como Desarrollador Back‑end freelance, mejorando un sistema de facturación en PHP/MySQL
-                y generando documentos PDF bajo metodología Agile.
+                Anteriormente colaboré como <strong>Desarrollador Back‑end freelance</strong>, mejorando un <strong>sistema de facturación</strong> en <strong>PHP/MySQL</strong>
+                y generando <strong>documentos PDF</strong> bajo metodología <strong>Agile</strong>.
               </p>
+              <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <p className="text-white text-sm md:text-base max-w-xs">
+                    <strong>Experiencia con:</strong>
+                    <br />
+                    <Experience />
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="flex justify-center -mt-18">
-            <Image
-              src={imagenPerfil || "/placeholder.svg"}
-              width={200}
-              height={200}
-              alt="Mi foto"
-              className="rounded-sm"
-            />
           </div>
         </div>
       </MobileView>
