@@ -84,7 +84,7 @@ export const CVPdf = () => (
       <View style={styles.grid}>
         <View style={styles.aside}>
           <View style={styles.section}>
-            <Text style={styles.title}>Suleiman.dev</Text>
+            <Text style={styles.title}>sulaimaneltaha.com</Text>
             <Text style={styles.text}>Badalona, España</Text>
             <Text style={styles.text}>sulat3821@gmail.com</Text>
           </View>
@@ -92,14 +92,39 @@ export const CVPdf = () => (
           <View style={styles.section}>
             <Text style={styles.subtitle}>Tecnologías</Text>
             {[
-              "JavaScript", "TypeScript", "PHP", "HTML", "CSS", "Sass", "Java", "Python", "C++",
-              "React", "Next.js", "Vite", "Tailwind CSS", "Material UI", "Bootstrap", "Bulma", "Shadcn",
-              "Node.JS", "Express.js", "Laravel", "Symfony",
-              "MySQL", "PostgreSQL", "Supabase",
-              "Git", "GitHub",
-              "Vercel", "Railway", "Netlify"
+              "JavaScript",
+              "TypeScript",
+              "PHP",
+              "HTML",
+              "CSS",
+              "Sass",
+              "Java",
+              "Python",
+              "C++",
+              "React",
+              "Next.js",
+              "Vite",
+              "Tailwind CSS",
+              "Material UI",
+              "Bootstrap",
+              "Bulma",
+              "Shadcn",
+              "Node.JS",
+              "Express.js",
+              "Laravel",
+              "Symfony",
+              "MySQL",
+              "PostgreSQL",
+              "Supabase",
+              "Git",
+              "GitHub",
+              "Vercel",
+              "Railway",
+              "Netlify",
             ].map((tech, index) => (
-              <Text key={index} style={styles.listItem}>• {tech}</Text>
+              <Text key={index} style={styles.listItem}>
+                • {tech}
+              </Text>
             ))}
           </View>
 
@@ -111,9 +136,11 @@ export const CVPdf = () => (
               "Curso de JavaScript avanzado",
               "Curso de HTML5 Y CSS3",
               "Curso de JavaScript intermedio",
-              "Curso de JavaScript para principantes"
+              "Curso de JavaScript para principantes",
             ].map((cert, index) => (
-              <Text key={index} style={styles.listItem}>• {cert}</Text>
+              <Text key={index} style={styles.listItem}>
+                • {cert}
+              </Text>
             ))}
           </View>
 
@@ -121,23 +148,39 @@ export const CVPdf = () => (
             <Text style={styles.subtitle}>Formación</Text>
             <View style={styles.experienceItem}>
               <Text style={styles.experienceTitle}>Centro FP Llefia</Text>
-              <Text style={styles.text}>Técnico superior de desarrollo de aplicaciones web</Text>
-              <Text style={styles.experienceDate}>Septiembre 2023 - Junio 2025</Text>
+              <Text style={styles.text}>
+                Técnico superior de desarrollo de aplicaciones web
+              </Text>
+              <Text style={styles.experienceDate}>
+                Septiembre 2023 - Junio 2025
+              </Text>
             </View>
             <View style={styles.experienceItem}>
               <Text style={styles.experienceTitle}>Centro FP Llefia</Text>
-              <Text style={styles.text}>Técnico de sistemas microinformáticos y redes</Text>
-              <Text style={styles.experienceDate}>Septiembre 2021 - Junio 2023</Text>
+              <Text style={styles.text}>
+                Técnico de sistemas microinformáticos y redes
+              </Text>
+              <Text style={styles.experienceDate}>
+                Septiembre 2021 - Junio 2023
+              </Text>
             </View>
             <View style={styles.experienceItem}>
               <Text style={styles.experienceTitle}>Maregassa CEE</Text>
-              <Text style={styles.text}>Técnico auxiliar en establecimientos hoteleros y restauración</Text>
-              <Text style={styles.experienceDate}>Septiembre 2018 - Junio 2020</Text>
+              <Text style={styles.text}>
+                Técnico auxiliar en establecimientos hoteleros y restauración
+              </Text>
+              <Text style={styles.experienceDate}>
+                Septiembre 2018 - Junio 2020
+              </Text>
             </View>
             <View style={styles.experienceItem}>
               <Text style={styles.experienceTitle}>Salesians Badalona</Text>
-              <Text style={styles.text}>Educación secundaria obligatoria (ESO)</Text>
-              <Text style={styles.experienceDate}>Septiembre 2014 - Junio 2018</Text>
+              <Text style={styles.text}>
+                Educación secundaria obligatoria (ESO)
+              </Text>
+              <Text style={styles.experienceDate}>
+                Septiembre 2014 - Junio 2018
+              </Text>
             </View>
           </View>
 
@@ -151,9 +194,11 @@ export const CVPdf = () => (
               "Iniciativa",
               "Adaptabilidad",
               "Comunicación",
-              "Aprendizaje continuo"
+              "Aprendizaje continuo",
             ].map((skill, index) => (
-              <Text key={index} style={styles.listItem}>• {skill}</Text>
+              <Text key={index} style={styles.listItem}>
+                • {skill}
+              </Text>
             ))}
           </View>
         </View>
@@ -167,22 +212,27 @@ export const CVPdf = () => (
 
           <View style={styles.section}>
             <Text style={styles.text}>
-              Soy un desarrollador web apasionado por crear experiencias digitales excepcionales. 
-              Con una sólida formación en desarrollo frontend y backend, me esfuerzo por construir 
-              aplicaciones web rápidas, accesibles y fáciles de usar. Siempre estoy buscando 
+              Soy un desarrollador web apasionado por crear experiencias
+              digitales excepcionales. Con una sólida formación en desarrollo
+              frontend y backend, me esfuerzo por construir aplicaciones web
+              rápidas, accesibles y fáciles de usar. Siempre estoy buscando
               aprender nuevas tecnologías y mejorar mis habilidades.
             </Text>
           </View>
 
           <View style={styles.section}>
             <Text style={styles.subtitle}>Experiencia</Text>
-            
+
             <View style={styles.experienceItem}>
-              <Text style={styles.experienceTitle}>SM Sistemas medioambientales — Trainee fullstack developer</Text>
+              <Text style={styles.experienceTitle}>
+                SM Sistemas medioambientales — Trainee fullstack developer
+              </Text>
               <Text style={styles.experienceDate}>Junio 2024 - Junio 2025</Text>
               <Text style={styles.experienceDescription}>
-              He finalizado mis prácticas en SM Sistemas medioambientales , donde he trabajado como 
-              Trainee Fullstack Developer, desarrollando una aplicacion web de RRHH para la empresa usando React, Symfony, Tailwind, MaterialUI y Mysql
+                He finalizado mis prácticas en SM Sistemas medioambientales ,
+                donde he trabajado como Trainee Fullstack Developer,
+                desarrollando una aplicacion web de RRHH para la empresa usando
+                React, Symfony, Tailwind, MaterialUI y Mysql
               </Text>
               <View style={styles.experienceList}>
                 {[
@@ -196,20 +246,24 @@ export const CVPdf = () => (
                   "Identificación y solución de diversos problemas relacionados con la experiencia de usuario",
                   "Optimización de controladores y consultas en Symfony para mejorar el acceso a la web",
                   "Desarrollo de una lógica personalizada para la asignación automática de roles",
-                  "Creación del sistema de jornada de distribución especial, permitiendo una distribución equitativa de horas y gestión flexible de vacaciones entre diferentes períodos."
+                  "Creación del sistema de jornada de distribución especial, permitiendo una distribución equitativa de horas y gestión flexible de vacaciones entre diferentes períodos.",
                 ].map((item, index) => (
-                  <Text key={index} style={styles.experienceListItem}>• {item}</Text>
+                  <Text key={index} style={styles.experienceListItem}>
+                    • {item}
+                  </Text>
                 ))}
               </View>
             </View>
 
             <View style={styles.experienceItem}>
-              <Text style={styles.experienceTitle}>Grupo Guarani — Backend Developer</Text>
+              <Text style={styles.experienceTitle}>
+                Grupo Guarani — Backend Developer
+              </Text>
               <Text style={styles.experienceDate}>Marzo 2025 - Abril 2025</Text>
               <Text style={styles.experienceDescription}>
-                Trabajé como desarrollador backend en Grupo Guarani de manera autonoma, 
-                donde desarrollé consultas para realizar un crud de facturacion en una base 
-                de datos con PHP SQL y Tailwind.
+                Trabajé como desarrollador backend en Grupo Guarani de manera
+                autonoma, donde desarrollé consultas para realizar un crud de
+                facturacion en una base de datos con PHP SQL y Tailwind.
               </Text>
               <View style={styles.experienceList}>
                 {[
@@ -217,19 +271,26 @@ export const CVPdf = () => (
                   "El proyecto se llevó a cabo bajo la metodología Agile, colaborando estrechamente con un compañero.",
                   "Utilizamos PHP para la lógica del backend y Tailwind CSS para el diseño de la interfaz, asegurando un diseño limpio y moderno.",
                   "La generación de facturas se realizó con una librería PDF, y las consultas a la base de datos fueron gestionadas con MySQL para asegurar la correcta persistencia y manipulación de la información.",
-                  "Este trabajo incluyó la optimización de la interfaz y la integración de funcionalidades adicionales que permitieron a los usuarios gestionar y visualizar sus facturas de forma más eficiente y amigable."
+                  "Este trabajo incluyó la optimización de la interfaz y la integración de funcionalidades adicionales que permitieron a los usuarios gestionar y visualizar sus facturas de forma más eficiente y amigable.",
                 ].map((item, index) => (
-                  <Text key={index} style={styles.experienceListItem}>• {item}</Text>
+                  <Text key={index} style={styles.experienceListItem}>
+                    • {item}
+                  </Text>
                 ))}
               </View>
             </View>
 
             <View style={styles.experienceItem}>
-              <Text style={styles.experienceTitle}>Centro FP Llefia — Técnico de sistemas</Text>
-              <Text style={styles.experienceDate}>Mayo 2022 - Febrero 2023</Text>
+              <Text style={styles.experienceTitle}>
+                Centro FP Llefia — Técnico de sistemas
+              </Text>
+              <Text style={styles.experienceDate}>
+                Mayo 2022 - Febrero 2023
+              </Text>
               <Text style={styles.experienceDescription}>
-                Realice practicas en el centro de formacion profesional en el que arregle 
-                todo tipo de incidencias relacionas con software y hardware de los ordenadores del centro.
+                Realice practicas en el centro de formacion profesional en el
+                que arregle todo tipo de incidencias relacionas con software y
+                hardware de los ordenadores del centro.
               </Text>
               <View style={styles.experienceList}>
                 {[
@@ -239,23 +300,29 @@ export const CVPdf = () => (
                   "Implementación de Directivas: Creación de directivas para restringir específicas, como cambiar el fondo de pantalla, según roles de acciones del usuario.",
                   "Instalación de Software: Instalación de diversos software, incluyendo XAMPP, Office, Visual Studio, etc.",
                   "Gestión de Redes: Reemplazo de switch para mejorar la conectividad y resolver problemas. Configuración de direcciones IP locales para dispositivos como PLC, facilitando el acceso para usuarios sin permisos de cambio.",
-                  "Gestión de Permisos y Archivos en Linux: chmod, ls, tail, head, cp, cd, cat, useradd. PowerShell: gpupdate /force. Documentación: Creación de manuales para la empresa."
+                  "Gestión de Permisos y Archivos en Linux: chmod, ls, tail, head, cp, cd, cat, useradd. PowerShell: gpupdate /force. Documentación: Creación de manuales para la empresa.",
                 ].map((item, index) => (
-                  <Text key={index} style={styles.experienceListItem}>• {item}</Text>
+                  <Text key={index} style={styles.experienceListItem}>
+                    • {item}
+                  </Text>
                 ))}
               </View>
             </View>
 
             <View style={styles.experienceItem}>
-              <Text style={styles.experienceTitle}>Forn Marena — Prácticas de servicio de hosteleria</Text>
-              <Text style={styles.experienceDate}>Octubre 2019 - Junio 2020</Text>
+              <Text style={styles.experienceTitle}>
+                Forn Marena — Prácticas de servicio de hosteleria
+              </Text>
+              <Text style={styles.experienceDate}>
+                Octubre 2019 - Junio 2020
+              </Text>
               <Text style={styles.experienceDescription}>
                 Realice practicas en el Forn Marena, donde me encargue de
                 atender a los clientes y servir comida y bebida. Aprendi a
-                trabajar en equipo y a gestionar el tiempo de manera
-                eficiente. Durante mi tiempo allí, desarrollé habilidades de
-                atención al cliente y aprendí a trabajar en un entorno
-                dinámico y de ritmo rápido.
+                trabajar en equipo y a gestionar el tiempo de manera eficiente.
+                Durante mi tiempo allí, desarrollé habilidades de atención al
+                cliente y aprendí a trabajar en un entorno dinámico y de ritmo
+                rápido.
               </Text>
               <View style={styles.experienceList}>
                 {[
@@ -263,9 +330,11 @@ export const CVPdf = () => (
                   "Lavar las herramientas de trabajo y material del local.",
                   "Atención al cliente.",
                   "Ayuda al cocinero.",
-                  "Servir cafés y comida."
+                  "Servir cafés y comida.",
                 ].map((item, index) => (
-                  <Text key={index} style={styles.experienceListItem}>• {item}</Text>
+                  <Text key={index} style={styles.experienceListItem}>
+                    • {item}
+                  </Text>
                 ))}
               </View>
             </View>
