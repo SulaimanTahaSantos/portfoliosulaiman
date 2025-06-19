@@ -162,7 +162,7 @@ export const CVPdf = () => (
           <View style={styles.section}>
             <Text style={styles.title}>Suleiman</Text>
             <Text style={styles.title}>El Taha Santos</Text>
-            <Text style={styles.subtitle}>Trainee Fullstack Developer</Text>
+            <Text style={styles.subtitle}>Junior Fullstack Developer</Text>
           </View>
 
           <View style={styles.section}>
@@ -179,17 +179,15 @@ export const CVPdf = () => (
             
             <View style={styles.experienceItem}>
               <Text style={styles.experienceTitle}>SM Sistemas medioambientales — Trainee fullstack developer</Text>
-              <Text style={styles.experienceDate}>Junio 2024 - Presente</Text>
+              <Text style={styles.experienceDate}>Junio 2024 - Junio 2025</Text>
               <Text style={styles.experienceDescription}>
-                Actualmente estoy trabajando como becario en SM Sistemas medioambientales, 
-                donde estoy desarrollando una aplicación web para la gestión de datos medioambientales. 
-                Estoy utilizando tecnologías como React, Tailwind/MaterialUI, Symfony y SQL.
+              He finalizado mis prácticas en SM Sistemas medioambientales , donde he trabajado como 
+              Trainee Fullstack Developer, desarrollando una aplicacion web de RRHH para la empresa usando React, Symfony, Tailwind, MaterialUI y Mysql
               </Text>
               <View style={styles.experienceList}>
                 {[
                   "Desarrollo de componentes reutilizables en React, mejorando la escalabilidad y mantenibilidad del código.",
                   "Adaptación del diseño de aplicaciones para garantizar una experiencia responsive en dispositivos móviles y de escritorio.",
-                  "Collaborating with UX designers and researchers to inform the direction of products we craft",
                   "Rediseño integral de las interfaces de Login, Registro y Recuperación de Contraseña, mejorando la usabilidad y el atractivo visual",
                   "Implementación de la funcionalidad de recuperación de contraseña mediante EmailJS",
                   "Migración del sistema de estilos de Material UI a Tailwind CSS, obteniendo una interfaz más ligera y moderna.",

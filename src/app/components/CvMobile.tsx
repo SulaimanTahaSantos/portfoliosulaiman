@@ -84,7 +84,7 @@ export default function CvMobile() {
                   Suleiman El Taha Santos
                 </h1>
                 <h2 className="text-lg text-gray-700">
-                  Trainee Fullstack Developer
+                  Junior Fullstack Developer
                 </h2>
               </div>
 
@@ -128,7 +128,7 @@ export default function CvMobile() {
                         Trainee fullstack developer
                       </p>
                       <span className="text-xs text-gray-500">
-                        Junio 2024 - Presente
+                        Junio 2024 - Junio 2025
                       </span>
                     </div>
                   </div>

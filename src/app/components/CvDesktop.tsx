@@ -300,7 +300,7 @@ export default function CvDesktop() {
                     El Taha Santos
                   </h1>
                   <h2 className="text-xl text-gray-700 mt-2">
-                    Trainee Fullstack Developer
+                    Junior Fullstack Developer
                   </h2>
                 </div>
 
@@ -332,7 +332,7 @@ export default function CvDesktop() {
                           — Trainee fullstack developer
                         </h3>
                         <span className="text-sm text-gray-500">
-                          Junio 2024 - Presente
+                          Junio 2024 - Junio 2025
                         </span>
                       </div>
                       <p className="text-gray-600">
