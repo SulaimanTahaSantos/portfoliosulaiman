@@ -194,7 +194,7 @@ export default function Home() {
         cambioColor={cambioColor}
       />
       <SkillsSection divRef={div2Ref} />
-      <ExperienceSection divRef={tercerDivRef} imagenPerfil={imagenPerfil} />
+      <ExperienceSection divRef={tercerDivRef}  />
       <ProjectsSection divRef={div4Ref} />
       <ContactSection
         divRef={div5Ref}

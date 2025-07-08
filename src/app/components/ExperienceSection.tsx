@@ -1,16 +1,14 @@
-import Image, { StaticImageData } from "next/image";
 import type { RefObject } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 import Experience from "./Experience";
+import { WebDevSVG } from "@/app/components/WebDevSVG";
 
 interface ExperienceSectionProps {
   divRef: RefObject<HTMLDivElement | null>;
-  imagenPerfil: StaticImageData;
 }
 
 export default function ExperienceSection({
   divRef,
-  imagenPerfil,
 }: ExperienceSectionProps) {
   return (
     <>
@@ -62,13 +60,7 @@ export default function ExperienceSection({
 
             <div className="relative hidden lg:block">
               <div className="absolute inset-0 flex items-center justify-center">
-                <Image
-                  src={imagenPerfil || "/placeholder.svg"}
-                  width={400}
-                  height={400}
-                  alt="Mi foto"
-                  className="transform translate-x-10"
-                />
+                <WebDevSVG />
               </div>
             </div>
           </div>
