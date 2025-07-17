@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Mail, Menu, X } from "lucide-react";
+import { Mail, Menu, X, Phone } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -96,6 +96,16 @@ export default function CvDesktop() {
                     <Mail className="h-3 w-3" aria-label="email" />
                     sulat3821@gmail.com
                   </Link>
+                  <Link
+                    href="tel:+34692866417"
+                    className="text-sm text-gray-600 hover:text-indigo-600 flex items-center gap-1"
+                    aria-label="Teléfono"
+                    title="Teléfono"
+                  >
+                    <Phone className="h-3 w-3" aria-label="teléfono" />
+                    692 866 417
+                  </Link>
+                  
                 </div>
 
                 <div className="space-y-4">
