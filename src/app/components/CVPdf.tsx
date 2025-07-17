@@ -87,6 +87,7 @@ export const CVPdf = () => (
             <Text style={styles.title}>sulaimaneltaha.com</Text>
             <Text style={styles.text}>Badalona, España</Text>
             <Text style={styles.text}>sulat3821@gmail.com</Text>
+            <Text style={styles.text}>692 866 417</Text>
           </View>
 
           <View style={styles.section}>
