@@ -341,7 +341,6 @@ export default function CvDesktop() {
                         {[
                           "Desarrollo de componentes reutilizables en React, mejorando la escalabilidad y mantenibilidad del código.",
                           "Adaptación del diseño de aplicaciones para garantizar una experiencia responsive en dispositivos móviles y de escritorio.",
-                          "Collaborating with UX designers and researchers to inform the direction of products we craft",
                           "Rediseño integral de las interfaces de Login, Registro y Recuperación de Contraseña, mejorando la usabilidad y el atractivo visual",
                           "Implementación de la funcionalidad de recuperación de contraseña mediante EmailJS",
                           "Migración del sistema de estilos de Material UI a Tailwind CSS, obteniendo una interfaz más ligera y moderna.",
