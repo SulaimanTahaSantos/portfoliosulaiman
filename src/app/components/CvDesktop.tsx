@@ -249,21 +249,6 @@ export default function CvDesktop() {
                       <div className="flex items-start gap-2">
                         <span className="text-xs mt-1">•</span>
                         <div>
-                          <p className="font-medium">Maregassa CEE</p>
-                          <p>
-                            Técnico auxiliar en establecimientos hoteleros y
-                            restauración
-                          </p>
-                          <p className="text-gray-500">
-                            Septiembre 2018 - Junio 2020
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="text-sm text-gray-600">
-                      <div className="flex items-start gap-2">
-                        <span className="text-xs mt-1">•</span>
-                        <div>
                           <p className="font-medium">Salesians Badalona</p>
                           <p>Educación secundaria obligatoria (ESO)</p>
                           <p className="text-gray-500">
@@ -438,42 +423,6 @@ export default function CvDesktop() {
                           "Instalación de Software: Instalación de diversos software, incluyendo XAMPP, Office, Visual Studio, etc.",
                           "Gestión de Redes: Reemplazo de switch para mejorar la conectividad y resolver problemas. Configuración de direcciones IP locales para dispositivos como PLC, facilitando el acceso para usuarios sin permisos de cambio.",
                           "Gestión de Permisos y Archivos en Linux: `chmod`: Cambiar permisos en carpetas y archivos. `ls`: Listar contenido de un directorio. `tail`: Mostrar las últimas líneas de un archivo. `head`: Mostrar las primeras líneas de un archivo. `cp`: Copiar archivos y directorios. `cd`: Cambiar de directorio. `cat`: Muestra el contenido completo de un archivo. `useradd`: Crear nuevos usuarios en el sistema. PowerShell: `gpupdate /force`: Forzar la actualización de directivas del sistema. Utilizado para crear usuarios y asignar privilegios después de la instalación de Active Directory. Documentación: Creación de manuales para la empresa, a incluir temas como instalación, directivas, permisos, cuotas, hardware y software. Además, elaborará manuales sobre cómo ingresar las licencias, el proceso de adquisición, así como la instalación de servidores, incluyendo XAMPP, WinServer y TiaPortal.",
-                        ].map((item, index) => (
-                          <li
-                            key={index}
-                            className="text-gray-600 flex items-start gap-2"
-                          >
-                            <span className="text-indigo-600 mt-1">•</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center">
-                        <h3 className="text-lg font-medium">
-                          <span className="text-indigo-600">Forn Marena</span> —
-                          Prácticas de servicio de hosteleria
-                        </h3>
-                        <span className="text-sm text-gray-500">
-                          Octubre 2019 - Junio 2020
-                        </span>
-                      </div>
-                      <p className="text-gray-600">
-                        Realice practicas en el Forn Marena, donde me encargue
-                        de atender a los clientes y servir comida y bebida.
-                        Aprendi a trabajar en equipo y a gestionar el tiempo de
-                        manera eficiente. Durante mi tiempo allí, desarrollé
-                        habilidades de atención al cliente y aprendí a trabajar
-                        en un entorno dinámico y de ritmo rápido.
-                      </p>
-                      <ul className="space-y-2">
-                        {[
-                          "Recogida de la basura.",
-                          "Lavar las herramientas de trabajo y material del local.",
-                          "Atención al cliente.",
-                          "Ayuda al cocinero.",
-                          "Servir cafés y comida.",
                         ].map((item, index) => (
                           <li
                             key={index}

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     marginBottom: 5,
     color: '#4831D4',
     fontWeight: 'bold'
@@ -44,10 +44,10 @@ const styles = StyleSheet.create({
     gap: 10
   },
   aside: {
-    width: '35%'
+    width: '38%'
   },
   main: {
-    width: '65%'
+    width: '62%'
   },
   experienceItem: {
     marginBottom: 8
@@ -166,15 +166,6 @@ export const CVPdf = () => (
               </Text>
             </View>
             <View style={styles.experienceItem}>
-              <Text style={styles.experienceTitle}>Maregassa CEE</Text>
-              <Text style={styles.text}>
-                Técnico auxiliar en establecimientos hoteleros y restauración
-              </Text>
-              <Text style={styles.experienceDate}>
-                Septiembre 2018 - Junio 2020
-              </Text>
-            </View>
-            <View style={styles.experienceItem}>
               <Text style={styles.experienceTitle}>Salesians Badalona</Text>
               <Text style={styles.text}>
                 Educación secundaria obligatoria (ESO)
@@ -281,7 +272,7 @@ export const CVPdf = () => (
               </View>
             </View>
 
-            <View style={styles.experienceItem}>
+            <View style={styles.experienceItem} break>
               <Text style={styles.experienceTitle}>
                 Centro FP Llefia — Técnico de sistemas
               </Text>
@@ -302,36 +293,6 @@ export const CVPdf = () => (
                   "Instalación de Software: Instalación de diversos software, incluyendo XAMPP, Office, Visual Studio, etc.",
                   "Gestión de Redes: Reemplazo de switch para mejorar la conectividad y resolver problemas. Configuración de direcciones IP locales para dispositivos como PLC, facilitando el acceso para usuarios sin permisos de cambio.",
                   "Gestión de Permisos y Archivos en Linux: chmod, ls, tail, head, cp, cd, cat, useradd. PowerShell: gpupdate /force. Documentación: Creación de manuales para la empresa.",
-                ].map((item, index) => (
-                  <Text key={index} style={styles.experienceListItem}>
-                    • {item}
-                  </Text>
-                ))}
-              </View>
-            </View>
-
-            <View style={styles.experienceItem}>
-              <Text style={styles.experienceTitle}>
-                Forn Marena — Prácticas de servicio de hosteleria
-              </Text>
-              <Text style={styles.experienceDate}>
-                Octubre 2019 - Junio 2020
-              </Text>
-              <Text style={styles.experienceDescription}>
-                Realice practicas en el Forn Marena, donde me encargue de
-                atender a los clientes y servir comida y bebida. Aprendi a
-                trabajar en equipo y a gestionar el tiempo de manera eficiente.
-                Durante mi tiempo allí, desarrollé habilidades de atención al
-                cliente y aprendí a trabajar en un entorno dinámico y de ritmo
-                rápido.
-              </Text>
-              <View style={styles.experienceList}>
-                {[
-                  "Recogida de la basura.",
-                  "Lavar las herramientas de trabajo y material del local.",
-                  "Atención al cliente.",
-                  "Ayuda al cocinero.",
-                  "Servir cafés y comida.",
                 ].map((item, index) => (
                   <Text key={index} style={styles.experienceListItem}>
                     • {item}

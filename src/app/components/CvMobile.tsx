@@ -256,26 +256,6 @@ export default function CvMobile() {
                     </ul>
                   </details>
                 </div>
-
-                <div className="space-y-2">
-                  <div>
-                    <h3 className="text-base font-medium text-indigo-600">
-                      Forn Marena
-                    </h3>
-                    <div className="flex justify-between items-center">
-                      <p className="text-sm text-gray-700">
-                        Prácticas de hostelería
-                      </p>
-                      <span className="text-xs text-gray-500">
-                        Octubre 2019 - Junio 2020
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-600">
-                    Realice practicas en el Forn Marena, donde me encargue de
-                    atender a los clientes y servir comida y bebida.
-                  </p>
-                </div>
               </div>
             </section>
 
@@ -362,15 +342,6 @@ export default function CvMobile() {
                   </div>
                   <p className="text-xs">
                     Técnico de sistemas microinformáticos y redes
-                  </p>
-                </li>
-                <li className="text-sm">
-                  <div className="flex justify-between">
-                    <p className="font-medium">Maregassa CEE</p>
-                    <p className="text-xs text-gray-500">2018 - 2020</p>
-                  </div>
-                  <p className="text-xs">
-                    Técnico auxiliar en establecimientos hoteleros
                   </p>
                 </li>
                 <li className="text-sm">
