@@ -112,57 +112,65 @@ export default function CvDesktop() {
                   <h3 className="text-sm font-medium text-indigo-700">
                     Tecnologias
                   </h3>
-                  <ul className="space-y-1">
-                    {[
-                      // Lenguajes
-                      "JavaScript",
-                      "TypeScript",
-                      "PHP",
-                      "HTML",
-                      "CSS",
-                      "Sass",
-                      "Java",
-                      "Python",
-                      "C++",
+                  
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-xs font-semibold text-indigo-600 mb-1">
+                        Experiencia profesional / freelance:
+                      </p>
+                      <ul className="space-y-1">
+                        {[
+                          "JavaScript",
+                          "HTML5",
+                          "CSS3",
+                          "React",
+                          "Tailwind CSS",
+                          "Material UI",
+                          "PHP",
+                          "Symfony",
+                          "MySQL",
+                          "Git",
+                          "Agile",
+                        ].map((tech) => (
+                          <li
+                            key={tech}
+                            className="text-sm text-gray-600 flex items-center gap-2"
+                          >
+                            <span className="text-xs">•</span> {tech}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                      // Frontend Frameworks & Librerías
-                      "React",
-                      "Next.js",
-                      "Vite",
-                      "Tailwind CSS",
-                      "Material UI",
-                      "Bootstrap",
-                      "Bulma",
-                      "Shadcn",
-
-                      // Backend Frameworks
-                      "Node.JS",
-                      "Express.js",
-                      "Laravel",
-                      "Symfony",
-
-                      // Bases de Datos
-                      "MySQL",
-                      "PostgreSQL",
-                      "Supabase",
-
-                      // Control de versiones
-                      "Git",
-                      "GitHub",
-
-                      // Producción / Deploy
-                      "Vercel",
-                      "Railway",
-                      "Netlify",
-                    ].map((tech) => (
-                      <li
-                        key={tech}
-                        className="text-sm text-gray-600 flex items-center gap-2"
-                      >
-                        <span className="text-xs">•</span> {tech}
-                      </li>
-                    ))}
-                  </ul>
+                    <div>
+                      <p className="text-xs font-semibold text-indigo-600 mb-1">
+                        Proyectos propios (publicados o en desarrollo):
+                      </p>
+                      <ul className="space-y-1">
+                        {[
+                          "Next.js",
+                          "TypeScript",
+                          "Prisma",
+                          "AWS",
+                          "PostgreSQL",
+                          "Vercel",
+                          "Railway",
+                          "Laravel",
+                          "ShadCN",
+                          "Bootstrap",
+                          "Python",
+                          "Unreal Engine 5",
+                        ].map((tech) => (
+                          <li
+                            key={tech}
+                            className="text-sm text-gray-600 flex items-center gap-2"
+                          >
+                            <span className="text-xs">•</span> {tech}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-sm font-medium text-indigo-700">
@@ -170,6 +178,10 @@ export default function CvDesktop() {
                   </h3>
                   <ul className="space-y-1">
                     {[
+                      {
+                        name: "Mejor Proyecto de Clase con Unreal Engine 5",
+                        url: "https://ucarecdn.com/c88ac86c-9833-4993-95a2-97c485d990df/",
+                      },
                       {
                         name: "Curso de Introducción al diseño de interfaz de usuarios (UI)",
                         url: "https://openwebinars.net/cert/IYM0",
@@ -314,7 +326,7 @@ export default function CvDesktop() {
                   </h2>
                   <p className="text-gray-600">
                     He trabajado en varios proyectos web, algunos de los cuales
-                    fueron para las siguientes organizaciones:
+                    fueron para las siguientes empresas:
                   </p>
 
                   <div className="space-y-8">
@@ -331,25 +343,15 @@ export default function CvDesktop() {
                         </span>
                       </div>
                       <p className="text-gray-600">
-                        Actualmente estoy trabajando como becario en SM Sistemas
-                        medioambientales, donde estoy desarrollando una
-                        aplicación web para la gestión de datos
-                        medioambientales. Estoy utilizando tecnologías como
-                        React, Tailwind/MaterialUI, Symfony y SQL.
+                        Trabajé como desarrollador fullstack en un equipo ágil, utilizando React, Material UI, Tailwind CSS, Symfony, MySQL y Git. Estas fueron algunas de mis principales responsabilidades:
                       </p>
                       <ul className="space-y-2">
                         {[
-                          "Desarrollo de componentes reutilizables en React, mejorando la escalabilidad y mantenibilidad del código.",
-                          "Adaptación del diseño de aplicaciones para garantizar una experiencia responsive en dispositivos móviles y de escritorio.",
-                          "Rediseño integral de las interfaces de Login, Registro y Recuperación de Contraseña, mejorando la usabilidad y el atractivo visual",
-                          "Implementación de la funcionalidad de recuperación de contraseña mediante EmailJS",
-                          "Migración del sistema de estilos de Material UI a Tailwind CSS, obteniendo una interfaz más ligera y moderna.",
-                          "Refactorización de código para optimizar su estructura, rendimiento y legibilidad",
-                          "Uso eficiente de Git para la gestión de versiones y trabajo colaborativo en equipo",
-                          "Identificación y solución de diversos problemas relacionados con la experiencia de usuario",
-                          "Optimización de controladores y consultas en Symfony para mejorar el acceso a la web",
-                          "Desarrollo de una lógica personalizada para la asignación automática de roles",
-                          "Creación del sistema de jornada de distribución especial, permitiendo una distribución equitativa de horas y gestión flexible de vacaciones entre diferentes períodos.",
+                          "Desarrollo de componentes escalables y reutilizables en React, migrando estilos de Material UI a Tailwind CSS.",
+                          "Rediseño de interfaces clave (Login, Registro, Recuperación), mejorando usabilidad y experiencia móvil.",
+                          "Implementación de funcionalidades como recuperación de contraseña vía EmailJS y fetch API personalizado",
+                          "Refactorización de código, resolución de problemas de UX y estandarización de peticiones HTTP.",
+                          "Optimización del backend en Symfony: controladores, consultas, asignación de roles y lógica de distribución horaria.",
                         ].map((item, index) => (
                           <li
                             key={index}
@@ -373,10 +375,7 @@ export default function CvDesktop() {
                         </span>
                       </div>
                       <p className="text-gray-600">
-                        Trabajé como desarrollador backend en Grupo Guarani de
-                        manera autonoma, donde desarrollé consultas para
-                        realizar un crud de facturacion en una base de datos con
-                        PHP SQL y Tailwind.
+                        Trabajé de forma autónoma como desarrollador backend, colaborando en la implementación de un sistema de facturación para una web empresarial. El proyecto se desarrolló bajo metodología Agile en conjunto con otro desarrollador.
                       </p>
                       <ul className="space-y-2">
                         {[
@@ -396,42 +395,89 @@ export default function CvDesktop() {
                         ))}
                       </ul>
                     </div>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center">
-                        <h3 className="text-lg font-medium">
-                          <span className="text-indigo-600">
-                            Centro FP Llefia
-                          </span>
-                          — Técnico de sistemas
-                        </h3>
-                        <span className="text-sm text-gray-500">
-                          Mayo 2022 - Febrero 2023
-                        </span>
-                      </div>
-                      <p className="text-gray-600">
-                        Realice practicas en el centro de formacion profesional
-                        en el que arregle todo tipo de incidencias relacionas
-                        con software y hardware de los ordenadores del centro.
+                  </div>
+                </section>
+
+                <section className="space-y-6">
+                  <h2 className="text-lg font-medium text-indigo-600">
+                    Proyectos personales destacados
+                  </h2>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="font-medium text-gray-700 mb-2">
+                        Tetris
                       </p>
-                      <ul className="space-y-2">
-                        {[
-                          "Identificación y Resolución de Problemas de Hardware: Resolución de fallos y montaje en procesadores, placas base, pilas (baterías), BIOS, discos duros, SSD y otros componentes. Comprobación y reparación de fallos en las ranuras de memoria.",
-                          "Seguridad y cuotas: Realización de copias de seguridad utilizando periféricos para facilitar la transferencia de datos. Asignación de cuotas de espacio a usuarios según prioridades y necesidades.",
-                          "Gestión de Permisos: Configuración de permisos en carpetas para evitar la modificación o eliminación de datos por usuarios no autorizados.",
-                          "Implementación de Directivas: Creación de directivas para restringir específicas, como cambiar el fondo de pantalla, según roles de acciones del usuario.",
-                          "Instalación de Software: Instalación de diversos software, incluyendo XAMPP, Office, Visual Studio, etc.",
-                          "Gestión de Redes: Reemplazo de switch para mejorar la conectividad y resolver problemas. Configuración de direcciones IP locales para dispositivos como PLC, facilitando el acceso para usuarios sin permisos de cambio.",
-                          "Gestión de Permisos y Archivos en Linux: `chmod`: Cambiar permisos en carpetas y archivos. `ls`: Listar contenido de un directorio. `tail`: Mostrar las últimas líneas de un archivo. `head`: Mostrar las primeras líneas de un archivo. `cp`: Copiar archivos y directorios. `cd`: Cambiar de directorio. `cat`: Muestra el contenido completo de un archivo. `useradd`: Crear nuevos usuarios en el sistema. PowerShell: `gpupdate /force`: Forzar la actualización de directivas del sistema. Utilizado para crear usuarios y asignar privilegios después de la instalación de Active Directory. Documentación: Creación de manuales para la empresa, a incluir temas como instalación, directivas, permisos, cuotas, hardware y software. Además, elaborará manuales sobre cómo ingresar las licencias, el proceso de adquisición, así como la instalación de servidores, incluyendo XAMPP, WinServer y TiaPortal.",
-                        ].map((item, index) => (
-                          <li
-                            key={index}
-                            className="text-gray-600 flex items-start gap-2"
-                          >
-                            <span className="text-indigo-600 mt-1">•</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="flex gap-4">
+                        <a
+                          href="https://github.com/SulaimanTahaSantos/ProyectoTetrisSulaiman"
+                          className="text-indigo-600 hover:underline text-sm"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Repositorio Tetris"
+                        >
+                          Repositorio
+                        </a>
+                        <a
+                          href="https://proyecto-tetris-sulaiman.vercel.app/"
+                          className="text-indigo-600 hover:underline text-sm"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Publicación Tetris"
+                        >
+                          Visualización de la página web 
+                        </a>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-700 mb-2">
+                        Sistemas de gestión de incidencias
+                      </p>
+                      <div className="flex gap-4">
+                        <a
+                          href="https://github.com/SulaimanTahaSantos/GestorIncidenciasSulaiman"
+                          className="text-indigo-600 hover:underline text-sm"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Sistema de gestión de incidencias Repositorio"
+                        >
+                          Repositorio
+                        </a>
+                        <a
+                          href="https://gestor-incidencias-sulaiman.vercel.app"
+                          className="text-indigo-600 hover:underline text-sm"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Publicación Proyecto gestión de incidencias"
+                        >
+                          Visualización de la página web 
+                        </a>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="font-medium text-gray-700 mb-2">
+                        Uno Game
+                      </p>
+                      <div className="flex gap-4">
+                        <a
+                          href="https://github.com/SulaimanTahaSantos/UnoGame"
+                          className="text-indigo-600 hover:underline text-sm"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Uno Game Repositorio"
+                        >
+                          Repositorio
+                        </a>
+                        <a
+                          href="https://sulaiman.alwaysdata.net/UF2/jocUno/formulario.php"
+                          className="text-indigo-600 hover:underline text-sm"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Publicación Uno Game"
+                        >
+                          Visualización de la página web 
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </section>

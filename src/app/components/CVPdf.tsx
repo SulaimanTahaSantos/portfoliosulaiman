@@ -1,81 +1,87 @@
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Link } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   page: {
-    padding: 20,
-    backgroundColor: '#ffffff',
-    width: '100%',
-    height: '100%'
+    padding: 15,
+    backgroundColor: "#ffffff",
+    width: "100%",
+    height: "100%",
   },
   section: {
-    margin: 5,
-    padding: 5,
+    margin: 3,
+    padding: 3,
   },
   title: {
-    fontSize: 18,
-    marginBottom: 5,
-    color: '#4831D4',
-    fontWeight: 'bold'
+    fontSize: 17,
+    marginBottom: 3,
+    color: "#4831D4",
+    fontWeight: "bold",
   },
   subtitle: {
-    fontSize: 14,
-    marginBottom: 3,
-    color: '#4831D4'
+    fontSize: 13,
+    marginBottom: 2,
+    color: "#4831D4",
   },
   text: {
-    fontSize: 10,
-    marginBottom: 3,
-    color: '#374151'
+    fontSize: 9,
+    marginBottom: 2,
+    color: "#374151",
   },
   listItem: {
     fontSize: 9,
-    marginBottom: 2,
-    color: '#374151'
+    marginBottom: 1,
+    color: "#374151",
   },
   header: {
-    marginBottom: 10
+    marginBottom: 8,
   },
   contact: {
-    marginBottom: 5
+    marginBottom: 3,
   },
   grid: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 10
+    display: "flex",
+    flexDirection: "row",
+    gap: 8,
   },
   aside: {
-    width: '38%'
+    width: "38%",
   },
   main: {
-    width: '62%'
+    width: "62%",
   },
   experienceItem: {
-    marginBottom: 8
+    marginBottom: 5,
   },
   experienceTitle: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    color: '#4831D4',
-    marginBottom: 6
+    fontSize: 9,
+    fontWeight: "bold",
+    color: "#4831D4",
+    marginBottom: 3,
   },
   experienceDate: {
-    fontSize: 9,
-    color: '#6B7280',
-    marginBottom: 2
+    fontSize: 7,
+    color: "#6B7280",
+    marginBottom: 1,
   },
   experienceDescription: {
     fontSize: 9,
-    color: '#374151',
-    marginBottom: 2
+    color: "#374151",
+    marginBottom: 3,
   },
   experienceList: {
-    marginLeft: 5
+    marginLeft: 3,
   },
   experienceListItem: {
     fontSize: 9,
-    color: '#374151',
-    marginBottom: 2
-  }
+    color: "#374151",
+    marginBottom: 1,
+  },
+  link: {
+    fontSize: 9,
+    color: "#4831D4",
+    textDecoration: "underline",
+    marginBottom: 1,
+  },
 });
 
 export const CVPdf = () => (
@@ -92,36 +98,44 @@ export const CVPdf = () => (
 
           <View style={styles.section}>
             <Text style={styles.subtitle}>Tecnologías</Text>
+            
+            <Text style={styles.experienceTitle}>
+              Experiencia profesional / freelance:
+            </Text>
             {[
               "JavaScript",
-              "TypeScript",
-              "PHP",
-              "HTML",
-              "CSS",
-              "Sass",
-              "Java",
-              "Python",
-              "C++",
+              "HTML5",
+              "CSS3",
               "React",
-              "Next.js",
-              "Vite",
               "Tailwind CSS",
               "Material UI",
-              "Bootstrap",
-              "Bulma",
-              "Shadcn",
-              "Node.JS",
-              "Express.js",
-              "Laravel",
+              "PHP",
               "Symfony",
               "MySQL",
-              "PostgreSQL",
-              "Supabase",
               "Git",
-              "GitHub",
+              "Agile",
+            ].map((tech, index) => (
+              <Text key={index} style={styles.listItem}>
+                • {tech}
+              </Text>
+            ))}
+
+            <Text style={[styles.experienceTitle, { marginTop: 5 }]}>
+              Proyectos propios:
+            </Text>
+            {[
+              "Next.js",
+              "TypeScript",
+              "Prisma",
+              "AWS",
+              "PostgreSQL",
               "Vercel",
               "Railway",
-              "Netlify",
+              "Laravel",
+              "ShadCN",
+              "Bootstrap",
+              "Python",
+              "Unreal Engine 5",
             ].map((tech, index) => (
               <Text key={index} style={styles.listItem}>
                 • {tech}
@@ -131,18 +145,48 @@ export const CVPdf = () => (
 
           <View style={styles.section}>
             <Text style={styles.subtitle}>Certificaciones</Text>
-            {[
-              "Curso de Introducción al diseño de interfaz de usuarios (UI)",
-              "Curso Python",
-              "Curso de JavaScript avanzado",
-              "Curso de HTML5 Y CSS3",
-              "Curso de JavaScript intermedio",
-              "Curso de JavaScript para principantes",
-            ].map((cert, index) => (
-              <Text key={index} style={styles.listItem}>
-                • {cert}
-              </Text>
-            ))}
+            <View style={{ marginBottom: 1 }}>
+              <Text style={styles.listItem}>• Mejor Proyecto de Clase con Unreal Engine 5</Text>
+              <Link src="https://ucarecdn.com/c88ac86c-9833-4993-95a2-97c485d990df/" style={styles.link}>
+                  Ver certificado
+              </Link>
+            </View>
+            <View style={{ marginBottom: 1 }}>
+              <Text style={styles.listItem}>• Curso de Introducción al diseño de UI</Text>
+              <Link src="https://openwebinars.net/cert/IYM0" style={styles.link}>
+                  Ver certificado
+              </Link>
+            </View>
+            <View style={{ marginBottom: 1 }}>
+              <Text style={styles.listItem}>• Curso Python</Text>
+              <Link src="https://ucarecdn.com/c8254922-37f0-4b5c-99e8-0f971c4cd684/" style={styles.link}>
+                  Ver certificado
+              </Link>
+            </View>
+            <View style={{ marginBottom: 1 }}>
+              <Text style={styles.listItem}>• Curso de JavaScript avanzado</Text>
+              <Link src="https://openwebinars.net/cert/mYNpD" style={styles.link}>
+                  Ver certificado
+              </Link>
+            </View>
+            <View style={{ marginBottom: 1 }}>
+              <Text style={styles.listItem}>• Curso de HTML5 Y CSS3</Text>
+              <Link src="https://openwebinars.net/cert/wEXpE" style={styles.link}>
+                  Ver certificado
+              </Link>
+            </View>
+            <View style={{ marginBottom: 1 }}>
+              <Text style={styles.listItem}>• Curso de JavaScript intermedio</Text>
+              <Link src="https://openwebinars.net/cert/Mymzr" style={styles.link}>
+                  Ver certificado
+              </Link>
+            </View>
+            <View style={{ marginBottom: 1 }}>
+              <Text style={styles.listItem}>• Curso de JavaScript para principantes</Text>
+              <Link src="https://openwebinars.net/cert/3OPYp" style={styles.link}>
+                  Ver certificado
+              </Link>
+            </View>
           </View>
 
           <View style={styles.section}>
@@ -154,24 +198,6 @@ export const CVPdf = () => (
               </Text>
               <Text style={styles.experienceDate}>
                 Septiembre 2023 - Junio 2025
-              </Text>
-            </View>
-            <View style={styles.experienceItem}>
-              <Text style={styles.experienceTitle}>Centro FP Llefia</Text>
-              <Text style={styles.text}>
-                Técnico de sistemas microinformáticos y redes
-              </Text>
-              <Text style={styles.experienceDate}>
-                Septiembre 2021 - Junio 2023
-              </Text>
-            </View>
-            <View style={styles.experienceItem}>
-              <Text style={styles.experienceTitle}>Salesians Badalona</Text>
-              <Text style={styles.text}>
-                Educación secundaria obligatoria (ESO)
-              </Text>
-              <Text style={styles.experienceDate}>
-                Septiembre 2014 - Junio 2018
               </Text>
             </View>
           </View>
@@ -221,24 +247,17 @@ export const CVPdf = () => (
               </Text>
               <Text style={styles.experienceDate}>Junio 2024 - Junio 2025</Text>
               <Text style={styles.experienceDescription}>
-                He finalizado mis prácticas en SM Sistemas medioambientales ,
-                donde he trabajado como Trainee Fullstack Developer,
-                desarrollando una aplicacion web de RRHH para la empresa usando
-                React, Symfony, Tailwind, MaterialUI y Mysql
+                Trabajé como desarrollador fullstack en un equipo ágil,
+                utilizando React, Material UI, Tailwind CSS, Symfony, MySQL y
+                Git. Estas fueron algunas de mis principales responsabilidades:
               </Text>
               <View style={styles.experienceList}>
                 {[
-                  "Desarrollo de componentes reutilizables en React, mejorando la escalabilidad y mantenibilidad del código.",
-                  "Adaptación del diseño de aplicaciones para garantizar una experiencia responsive en dispositivos móviles y de escritorio.",
-                  "Rediseño integral de las interfaces de Login, Registro y Recuperación de Contraseña, mejorando la usabilidad y el atractivo visual",
-                  "Implementación de la funcionalidad de recuperación de contraseña mediante EmailJS",
-                  "Migración del sistema de estilos de Material UI a Tailwind CSS, obteniendo una interfaz más ligera y moderna.",
-                  "Refactorización de código para optimizar su estructura, rendimiento y legibilidad",
-                  "Uso eficiente de Git para la gestión de versiones y trabajo colaborativo en equipo",
-                  "Identificación y solución de diversos problemas relacionados con la experiencia de usuario",
-                  "Optimización de controladores y consultas en Symfony para mejorar el acceso a la web",
-                  "Desarrollo de una lógica personalizada para la asignación automática de roles",
-                  "Creación del sistema de jornada de distribución especial, permitiendo una distribución equitativa de horas y gestión flexible de vacaciones entre diferentes períodos.",
+                  "Desarrollo de componentes escalables y reutilizables en React, migrando estilos de Material UI a Tailwind CSS.",
+                  "Rediseño de interfaces clave (Login, Registro, Recuperación), mejorando usabilidad y experiencia móvil.",
+                  "Implementación de funcionalidades como recuperación de contraseña vía EmailJS y fetch API personalizado",
+                  "Refactorización de código, resolución de problemas de UX y estandarización de peticiones HTTP.",
+                  "Optimización del backend en Symfony: controladores, consultas, asignación de roles y lógica de distribución horaria.",
                 ].map((item, index) => (
                   <Text key={index} style={styles.experienceListItem}>
                     • {item}
@@ -253,17 +272,17 @@ export const CVPdf = () => (
               </Text>
               <Text style={styles.experienceDate}>Marzo 2025 - Abril 2025</Text>
               <Text style={styles.experienceDescription}>
-                Trabajé como desarrollador backend en Grupo Guarani de manera
-                autonoma, donde desarrollé consultas para realizar un crud de
-                facturacion en una base de datos con PHP SQL y Tailwind.
+                Trabajé de forma autónoma como desarrollador backend,
+                colaborando en la implementación de un sistema de facturación
+                para una web empresarial. El proyecto se desarrolló bajo
+                metodología Agile en conjunto con otro desarrollador.
               </Text>
               <View style={styles.experienceList}>
                 {[
-                  "Participé en la mejora de un CRUD para una página web en la que se implementaba un sistema de facturación.",
-                  "El proyecto se llevó a cabo bajo la metodología Agile, colaborando estrechamente con un compañero.",
-                  "Utilizamos PHP para la lógica del backend y Tailwind CSS para el diseño de la interfaz, asegurando un diseño limpio y moderno.",
-                  "La generación de facturas se realizó con una librería PDF, y las consultas a la base de datos fueron gestionadas con MySQL para asegurar la correcta persistencia y manipulación de la información.",
-                  "Este trabajo incluyó la optimización de la interfaz y la integración de funcionalidades adicionales que permitieron a los usuarios gestionar y visualizar sus facturas de forma más eficiente y amigable.",
+                  "Mejoré un CRUD de facturación con PHP, MySQL y Tailwind CSS",
+                  "Implementé generación de facturas en PDF.",
+                  "Trabajé en metodología Agile junto a otro desarrollador.",
+                  "Optimicé la interfaz para mejorar la experiencia de usuario.",
                 ].map((item, index) => (
                   <Text key={index} style={styles.experienceListItem}>
                     • {item}
@@ -271,33 +290,39 @@ export const CVPdf = () => (
                 ))}
               </View>
             </View>
+            <View style={styles.section}>
+              <Text style={styles.subtitle}>Proyectos personales destacados</Text>
 
-            <View style={styles.experienceItem} break>
-              <Text style={styles.experienceTitle}>
-                Centro FP Llefia — Técnico de sistemas
-              </Text>
-              <Text style={styles.experienceDate}>
-                Mayo 2022 - Febrero 2023
-              </Text>
-              <Text style={styles.experienceDescription}>
-                Realice practicas en el centro de formacion profesional en el
-                que arregle todo tipo de incidencias relacionas con software y
-                hardware de los ordenadores del centro.
-              </Text>
-              <View style={styles.experienceList}>
-                {[
-                  "Identificación y Resolución de Problemas de Hardware: Resolución de fallos y montaje en procesadores, placas base, pilas (baterías), BIOS, discos duros, SSD y otros componentes. Comprobación y reparación de fallos en las ranuras de memoria.",
-                  "Seguridad y cuotas: Realización de copias de seguridad utilizando periféricos para facilitar la transferencia de datos. Asignación de cuotas de espacio a usuarios según prioridades y necesidades.",
-                  "Gestión de Permisos: Configuración de permisos en carpetas para evitar la modificación o eliminación de datos por usuarios no autorizados.",
-                  "Implementación de Directivas: Creación de directivas para restringir específicas, como cambiar el fondo de pantalla, según roles de acciones del usuario.",
-                  "Instalación de Software: Instalación de diversos software, incluyendo XAMPP, Office, Visual Studio, etc.",
-                  "Gestión de Redes: Reemplazo de switch para mejorar la conectividad y resolver problemas. Configuración de direcciones IP locales para dispositivos como PLC, facilitando el acceso para usuarios sin permisos de cambio.",
-                  "Gestión de Permisos y Archivos en Linux: chmod, ls, tail, head, cp, cd, cat, useradd. PowerShell: gpupdate /force. Documentación: Creación de manuales para la empresa.",
-                ].map((item, index) => (
-                  <Text key={index} style={styles.experienceListItem}>
-                    • {item}
-                  </Text>
-                ))}
+              <View style={styles.experienceItem}>
+                <Text style={styles.experienceTitle}>Tetris</Text>
+                <Link src="https://github.com/SulaimanTahaSantos/ProyectoTetrisSulaiman" style={styles.link}>
+                  Repositorio en GitHub
+                </Link>
+                <Link src="https://proyecto-tetris-sulaiman.vercel.app/" style={styles.link}>
+                  Ver proyecto web
+                </Link>
+              </View>
+
+              <View style={styles.experienceItem}>
+                <Text style={styles.experienceTitle}>
+                  Sistema de gestión de incidencias
+                </Text>
+                <Link src="https://github.com/SulaimanTahaSantos/GestorIncidenciasSulaiman" style={styles.link}>
+                  Repositorio en GitHub
+                </Link>
+                <Link src="https://gestor-incidencias-sulaiman.vercel.app" style={styles.link}>
+                   Ver proyecto web
+                </Link>
+              </View>
+
+              <View style={styles.experienceItem}>
+                <Text style={styles.experienceTitle}>Uno Game</Text>
+                <Link src="https://github.com/SulaimanTahaSantos/UnoGame" style={styles.link}>
+                  Repositorio en GitHub
+                </Link>
+                <Link src="https://sulaiman.alwaysdata.net/UF2/jocUno/formulario.php" style={styles.link}>
+                  Ver proyecto web
+                </Link>
               </View>
             </View>
           </View>
@@ -305,4 +330,4 @@ export const CVPdf = () => (
       </View>
     </Page>
   </Document>
-); 
+);

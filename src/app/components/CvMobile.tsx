@@ -24,7 +24,13 @@ export default function CvMobile() {
             </h1>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-[#C5FF4A]" aria-label="Menu" title="Menu" >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-[#C5FF4A]"
+                  aria-label="Menu"
+                  title="Menu"
+                >
                   <Menu className="h-6 w-6" />
                 </Button>
               </DropdownMenuTrigger>
@@ -41,7 +47,12 @@ export default function CvMobile() {
                     Inicio
                   </DropdownMenuItem>
                 </Link>
-                <Link href="/proyectos" passHref aria-label="Proyectos" title="Proyectos">
+                <Link
+                  href="/proyectos"
+                  passHref
+                  aria-label="Proyectos"
+                  title="Proyectos"
+                >
                   <DropdownMenuItem
                     className={`text-base font-medium py-2 hover:bg-transparent focus:bg-transparent ${
                       pathname === "/proyectos"
@@ -62,12 +73,20 @@ export default function CvMobile() {
                   </DropdownMenuItem>
                 </Link>
                 <div className="flex gap-4 mt-4">
-                  <Link href="https://github.com/SulaimanTahaSantos?tab=repositories" aria-label="GitHub" title="GitHub">
+                  <Link
+                    href="https://github.com/SulaimanTahaSantos?tab=repositories"
+                    aria-label="GitHub"
+                    title="GitHub"
+                  >
                     <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
                       GH
                     </p>
                   </Link>
-                  <Link href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/" aria-label="LinkedIn" title="LinkedIn">
+                  <Link
+                    href="https://www.linkedin.com/in/suleiman-el-taha-santos-6b0054254/"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                  >
                     <p className="text-[#4834C9] hover:bg-transparent hover:text-[#4834C9]/80 p-0">
                       LN
                     </p>
@@ -109,7 +128,7 @@ export default function CvMobile() {
                   692 866 417
                 </Link>
                 <div className="flex gap-4 mt-2">
-                  <LinkedinDownload  />
+                  <LinkedinDownload />
                 </div>
               </div>
 
@@ -142,9 +161,10 @@ export default function CvMobile() {
                     </div>
                   </div>
                   <p className="text-xs text-gray-600">
-                    Actualmente estoy trabajando como becario en SM Sistemas
-                    medioambientales, donde estoy desarrollando una aplicación
-                    web para la gestión de datos medioambientales.
+                    Trabajé como desarrollador fullstack en un equipo ágil,
+                    utilizando React, Material UI, Tailwind CSS, Symfony, MySQL
+                    y Git. Estas fueron algunas de mis principales
+                    responsabilidades:
                   </p>
                   <details className="text-xs">
                     <summary className="text-indigo-600 cursor-pointer font-medium">
@@ -185,9 +205,11 @@ export default function CvMobile() {
                     </div>
                   </div>
                   <p className="text-xs text-gray-600">
-                    Trabajé como desarrollador backend en Grupo Guarani de
-                    manera autonoma, donde desarrollé consultas para realizar un
-                    crud de facturacion.
+                    Trabajé de forma autónoma como desarrollador backend,
+                    colaborando en la implementación de un sistema de
+                    facturación para una web empresarial. El proyecto se
+                    desarrolló bajo metodología Agile en conjunto con otro
+                    desarrollador.
                   </p>
                   <details className="text-xs">
                     <summary className="text-indigo-600 cursor-pointer font-medium">
@@ -212,50 +234,6 @@ export default function CvMobile() {
                     </ul>
                   </details>
                 </div>
-
-                <div className="space-y-2">
-                  <div>
-                    <h3 className="text-base font-medium text-indigo-600">
-                      Centro FP Llefia
-                    </h3>
-                    <div className="flex justify-between items-center">
-                      <p className="text-sm text-gray-700">
-                        Técnico de sistemas
-                      </p>
-                      <span className="text-xs text-gray-500">
-                        Mayo 2022 - Febrero 2023
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-600">
-                    Realice practicas en el centro de formacion profesional en
-                    el que arregle todo tipo de incidencias relacionas con
-                    software y hardware.
-                  </p>
-                  <details className="text-xs">
-                    <summary className="text-indigo-600 cursor-pointer font-medium">
-                      Ver responsabilidades
-                    </summary>
-                    <ul className="space-y-1 mt-2 pl-3">
-                      {[
-                        "Resolución de problemas de hardware",
-                        "Copias de seguridad y gestión de cuotas",
-                        "Configuración de permisos en carpetas",
-                        "Implementación de directivas",
-                        "Instalación de software",
-                        "Gestión de redes",
-                      ].map((item, index) => (
-                        <li
-                          key={index}
-                          className="text-gray-600 flex items-start gap-1"
-                        >
-                          <span className="text-indigo-600">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                </div>
               </div>
             </section>
 
@@ -263,51 +241,25 @@ export default function CvMobile() {
               <h2 className="text-lg font-medium text-indigo-600 border-b border-gray-200 pb-2">
                 Tecnologías
               </h2>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "JavaScript",
-                  "TypeScript",
-                  "PHP",
-                  "Symfony",
-                  "HTML",
-                  "CSS",
-                  "React",
-                  "Next.js",
-                  "Tailwind",
-                  "Node.JS",
-                  "MySQL",
-                  "PostgreSQL",
-                  "Git",
-                  "Vercel",
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
-                <details className="w-full mt-2">
-                  <summary className="text-indigo-600 cursor-pointer text-xs font-medium">
-                    Ver más tecnologías
-                  </summary>
-                  <div className="flex flex-wrap gap-2 mt-2">
+              
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs font-semibold text-indigo-600 mb-2">
+                    Experiencia profesional / freelance:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
                     {[
-                      "Sass",
-                      "Java",
-                      "Python",
-                      "C++",
-                      "Vite",
+                      "JavaScript",
+                      "HTML5",
+                      "CSS3",
+                      "React",
+                      "Tailwind CSS",
                       "Material UI",
-                      "Bootstrap",
-                      "Bulma",
-                      "Shadcn",
-                      "Express.js",
-                      "Laravel",
-                      "Supabase",
-                      "GitHub",
-                      "Railway",
-                      "Netlify",
+                      "PHP",
+                      "Symfony",
+                      "MySQL",
+                      "Git",
+                      "Agile",
                     ].map((tech) => (
                       <span
                         key={tech}
@@ -317,7 +269,36 @@ export default function CvMobile() {
                       </span>
                     ))}
                   </div>
-                </details>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold text-indigo-600 mb-2">
+                    Proyectos propios (publicados o en desarrollo):
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "Next.js",
+                      "TypeScript",
+                      "Prisma",
+                      "AWS",
+                      "PostgreSQL",
+                      "Vercel",
+                      "Railway",
+                      "Laravel",
+                      "ShadCN",
+                      "Bootstrap",
+                      "Python",
+                      "Unreal Engine 5",
+                    ].map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </section>
 
@@ -367,6 +348,10 @@ export default function CvMobile() {
                 <ul className="space-y-2 mt-2">
                   {[
                     {
+                      name: "Mejor Proyecto de Clase con Unreal Engine 5",
+                      url: "https://ucarecdn.com/c88ac86c-9833-4993-95a2-97c485d990df/",
+                    },
+                    {
                       name: "Curso de Introducción al diseño de interfaz de usuarios (UI)",
                       url: "https://openwebinars.net/cert/IYM0",
                     },
@@ -406,6 +391,91 @@ export default function CvMobile() {
                   ))}
                 </ul>
               </details>
+            </section>
+
+            <section className="mt-6 space-y-4">
+              <h2 className="text-lg font-medium text-indigo-600 border-b border-gray-200 pb-2">
+                Proyectos Destacados
+              </h2>
+              <div className="space-y-4">
+                <div>
+                  <p className="font-medium text-gray-700 mb-2 text-sm">
+                    Tetris
+                  </p>
+                  <div className="flex gap-3">
+                    <a
+                      href="https://github.com/SulaimanTahaSantos/ProyectoTetrisSulaiman"
+                      className="text-indigo-600 hover:underline text-xs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Repositorio Tetris"
+                    >
+                      Repositorio
+                    </a>
+                    <a
+                      href="https://proyecto-tetris-sulaiman.vercel.app"
+                      className="text-indigo-600 hover:underline text-xs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Publicación Tetris"
+                    >
+                      Visualización de la página web
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="font-medium text-gray-700 mb-2 text-sm">
+                    Sistema de gestión de incidencias
+                  </p>
+                  <div className="flex gap-3">
+                    <a
+                      href="https://github.com/SulaimanTahaSantos/GestorIncidenciasSulaiman"
+                      className="text-indigo-600 hover:underline text-xs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Repositorio Gestor de Incidencias"
+                    >
+                      Repositorio
+                    </a>
+                    <a
+                      href="https://gestor-incidencias-sulaiman.vercel.app"
+                      className="text-indigo-600 hover:underline text-xs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Publicación Gestor de Incidencias"
+                    >
+                      Visualización de la página web
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="font-medium text-gray-700 mb-2 text-sm">
+                    Uno Game
+                  </p>
+                  <div className="flex gap-3">
+                    <a
+                      href="https://github.com/SulaimanTahaSantos/UnoGame"
+                      className="text-indigo-600 hover:underline text-xs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Repositorio Uno Game"
+                    >
+                      Repositorio
+                    </a>
+                    <a
+                      href="https://sulaiman.alwaysdata.net/UF2/jocUno/formulario.php"
+                      className="text-indigo-600 hover:underline text-xs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Publicación Uno Game"
+                    >
+                      Visualización de la página web
+                    </a>
+                  </div>
+                </div>
+              </div>
             </section>
 
             <section className="mt-6 space-y-4">
