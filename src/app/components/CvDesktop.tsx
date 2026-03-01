@@ -397,8 +397,8 @@ export default function CvDesktop() {
                     </div>
                   </div>
                 </section>
-
-                <section className="space-y-6">
+              
+                {/* <section className="space-y-6">
                   <h2 className="text-lg font-medium text-indigo-600">
                     Proyectos personales destacados
                   </h2>
@@ -480,7 +480,7 @@ export default function CvDesktop() {
                       </div>
                     </div>
                   </div>
-                </section>
+                </section> */}
               </main>
             </div>
           </div>

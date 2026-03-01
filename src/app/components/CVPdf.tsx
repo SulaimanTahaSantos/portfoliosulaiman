@@ -98,7 +98,7 @@ export const CVPdf = () => (
 
           <View style={styles.section}>
             <Text style={styles.subtitle}>Tecnologías</Text>
-            
+
             <Text style={styles.experienceTitle}>
               Experiencia profesional / freelance:
             </Text>
@@ -114,6 +114,16 @@ export const CVPdf = () => (
               "MySQL",
               "Git",
               "Agile",
+              "Oracle",
+              "Oracle BI Publisher",
+              "Qlik Sense Enterprise",
+              "Ruby on Rails",
+              "Next",
+              "TypeScript",
+              "Prisma",
+              "Express.js",
+              "Node.js",
+              "JD Edwards",
             ].map((tech, index) => (
               <Text key={index} style={styles.listItem}>
                 • {tech}
@@ -146,45 +156,76 @@ export const CVPdf = () => (
           <View style={styles.section}>
             <Text style={styles.subtitle}>Certificaciones</Text>
             <View style={{ marginBottom: 1 }}>
-              <Text style={styles.listItem}>• Mejor Proyecto de Clase con Unreal Engine 5</Text>
-              <Link src="https://ucarecdn.com/c88ac86c-9833-4993-95a2-97c485d990df/" style={styles.link}>
-                  Ver certificado
+              <Text style={styles.listItem}>
+                • Mejor Proyecto de Clase con Unreal Engine 5
+              </Text>
+              <Link
+                src="https://ucarecdn.com/c88ac86c-9833-4993-95a2-97c485d990df/"
+                style={styles.link}
+              >
+                Ver certificado
               </Link>
             </View>
             <View style={{ marginBottom: 1 }}>
-              <Text style={styles.listItem}>• Curso de Introducción al diseño de UI</Text>
-              <Link src="https://openwebinars.net/cert/IYM0" style={styles.link}>
-                  Ver certificado
+              <Text style={styles.listItem}>
+                • Curso de Introducción al diseño de UI
+              </Text>
+              <Link
+                src="https://openwebinars.net/cert/IYM0"
+                style={styles.link}
+              >
+                Ver certificado
               </Link>
             </View>
             <View style={{ marginBottom: 1 }}>
               <Text style={styles.listItem}>• Curso Python</Text>
-              <Link src="https://ucarecdn.com/c8254922-37f0-4b5c-99e8-0f971c4cd684/" style={styles.link}>
-                  Ver certificado
+              <Link
+                src="https://ucarecdn.com/c8254922-37f0-4b5c-99e8-0f971c4cd684/"
+                style={styles.link}
+              >
+                Ver certificado
               </Link>
             </View>
             <View style={{ marginBottom: 1 }}>
-              <Text style={styles.listItem}>• Curso de JavaScript avanzado</Text>
-              <Link src="https://openwebinars.net/cert/mYNpD" style={styles.link}>
-                  Ver certificado
+              <Text style={styles.listItem}>
+                • Curso de JavaScript avanzado
+              </Text>
+              <Link
+                src="https://openwebinars.net/cert/mYNpD"
+                style={styles.link}
+              >
+                Ver certificado
               </Link>
             </View>
             <View style={{ marginBottom: 1 }}>
               <Text style={styles.listItem}>• Curso de HTML5 Y CSS3</Text>
-              <Link src="https://openwebinars.net/cert/wEXpE" style={styles.link}>
-                  Ver certificado
+              <Link
+                src="https://openwebinars.net/cert/wEXpE"
+                style={styles.link}
+              >
+                Ver certificado
               </Link>
             </View>
             <View style={{ marginBottom: 1 }}>
-              <Text style={styles.listItem}>• Curso de JavaScript intermedio</Text>
-              <Link src="https://openwebinars.net/cert/Mymzr" style={styles.link}>
-                  Ver certificado
+              <Text style={styles.listItem}>
+                • Curso de JavaScript intermedio
+              </Text>
+              <Link
+                src="https://openwebinars.net/cert/Mymzr"
+                style={styles.link}
+              >
+                Ver certificado
               </Link>
             </View>
             <View style={{ marginBottom: 1 }}>
-              <Text style={styles.listItem}>• Curso de JavaScript para principantes</Text>
-              <Link src="https://openwebinars.net/cert/3OPYp" style={styles.link}>
-                  Ver certificado
+              <Text style={styles.listItem}>
+                • Curso de JavaScript para principantes
+              </Text>
+              <Link
+                src="https://openwebinars.net/cert/3OPYp"
+                style={styles.link}
+              >
+                Ver certificado
               </Link>
             </View>
           </View>
@@ -200,9 +241,18 @@ export const CVPdf = () => (
                 Septiembre 2023 - Junio 2025
               </Text>
             </View>
+            <View style={styles.experienceItem}>
+              <Text style={styles.experienceTitle}>Centro FP Llefia</Text>
+              <Text style={styles.text}>
+                Técnico de sistemas microinformáticos y redes.
+              </Text>
+              <Text style={styles.experienceDate}>
+                Septiembre 2021 - Junio 2023
+              </Text>
+            </View>
           </View>
 
-          <View style={styles.section}>
+          {/* <View style={styles.section}>
             <Text style={styles.subtitle}>Otros</Text>
             {[
               "Refactorización de código",
@@ -218,7 +268,7 @@ export const CVPdf = () => (
                 • {skill}
               </Text>
             ))}
-          </View>
+          </View> */}
         </View>
 
         <View style={styles.main}>
@@ -240,6 +290,41 @@ export const CVPdf = () => (
 
           <View style={styles.section}>
             <Text style={styles.subtitle}>Experiencia</Text>
+
+            <View style={styles.experienceItem}>
+              <Text style={styles.experienceTitle}>
+                Experis España & Famatel Spain — Junior Fullstack Developer y IT
+                Técnico
+              </Text>
+              <Text style={styles.experienceDate}>
+                Noviembre 2025 - Presente
+              </Text>
+              <Text style={styles.experienceDescription}>
+                Trabajo como Junior Fullstack Developer y IT Técnico con un
+                equipo ágil utilizando Next.js, TypeScript, Tailwind, Ruby on
+                Rails, Express.js, Node.js, Symfony, Prisma, Oracle SQL, Oracle
+                BI Publisher, Qlik Sense Enterprise y JD Edwards. Estas fueron
+                algunas de mis principales responsabilidades:
+              </Text>
+              <View style={styles.experienceList}>
+                {[
+                  "Migración del backend de PHP a Ruby on Rails, y frontend de React a Next.js y TypeScript con Tailwind CSS.",
+                  "Desarrollo y mantenimiento de más de 20 dashboards en Qlik Sense Enterprise y Power BI con consultas complejas.",
+                  "Gestión de JD Edwards ERP: múltiples tablas, gestión de pedidos, precios y forecast(Symfony), Carga masiva a traves de Excel tanto para actualizar como para insertar",
+                  "Implementación de cargas automáticas de datos cada media hora exportando a Excel, optimización de consultas Oracle SQL.",
+                  "Resolución de problemas de datos: duplicados, inconsistencias, transformaciones y validaciones complejas.",
+                  "Soporte técnico IT: servidores (SSH, VPN, FTP), incidencias, formateo y configuración de equipos.",
+                  "Deploy de aplicaciones mediante Git/SSH, documentación técnica y colaboración en metodología Agile.",
+                  "Desarrollo de APIs RESTful con Express.js y Node.js, controladores optimizados en Symfony y gestión de roles de usuarios.",
+                  "Optimizacion de consultas SQL en Oracle, creación de informes personalizados con Oracle BI Publisher y desarrollo de dashboards interactivos en Qlik Sense Enterprise.",
+                  "Funcionalidad de mejora de rendimiento con Prisma, Next y TypeScript refactorización de código para mejorar la mantenibilidad y escalabilidad de las aplicaciones.",
+                ].map((item, index) => (
+                  <Text key={index} style={styles.experienceListItem}>
+                    • {item}
+                  </Text>
+                ))}
+              </View>
+            </View>
 
             <View style={styles.experienceItem}>
               <Text style={styles.experienceTitle}>
@@ -290,7 +375,8 @@ export const CVPdf = () => (
                 ))}
               </View>
             </View>
-            <View style={styles.section}>
+
+            {/* <View style={styles.section}>
               <Text style={styles.subtitle}>Proyectos personales destacados</Text>
 
               <View style={styles.experienceItem}>
@@ -324,7 +410,7 @@ export const CVPdf = () => (
                   Ver proyecto web
                 </Link>
               </View>
-            </View>
+            </View> */}
           </View>
         </View>
       </View>
