@@ -317,7 +317,7 @@ export const CVPdf = () => (
                   "Deploy de aplicaciones mediante Git/SSH, documentación técnica y colaboración en metodología Agile.",
                   "Desarrollo de APIs RESTful con Express.js y Node.js, controladores optimizados en Symfony y gestión de roles de usuarios.",
                   "Optimizacion de consultas SQL en Oracle, creación de informes personalizados con Oracle BI Publisher y desarrollo de dashboards interactivos en Qlik Sense Enterprise.",
-                  "Funcionalidad de mejora de rendimiento con Prisma, Next y TypeScript refactorización de código para mejorar la mantenibilidad y escalabilidad de las aplicaciones.",
+                  // "Funcionalidad de mejora de rendimiento con Prisma, Next y TypeScript refactorización de código para mejorar la mantenibilidad y escalabilidad de las aplicaciones.",
                 ].map((item, index) => (
                   <Text key={index} style={styles.experienceListItem}>
                     • {item}
@@ -339,7 +339,7 @@ export const CVPdf = () => (
               <View style={styles.experienceList}>
                 {[
                   "Desarrollo de componentes escalables y reutilizables en React, migrando estilos de Material UI a Tailwind CSS.",
-                  "Rediseño de interfaces clave (Login, Registro, Recuperación), mejorando usabilidad y experiencia móvil.",
+                  // "Rediseño de interfaces clave (Login, Registro, Recuperación), mejorando usabilidad y experiencia móvil.",
                   "Implementación de funcionalidades como recuperación de contraseña vía EmailJS y fetch API personalizado",
                   "Refactorización de código, resolución de problemas de UX y estandarización de peticiones HTTP.",
                   "Optimización del backend en Symfony: controladores, consultas, asignación de roles y lógica de distribución horaria.",
@@ -351,7 +351,7 @@ export const CVPdf = () => (
               </View>
             </View>
 
-            <View style={styles.experienceItem}>
+            {/* <View style={styles.experienceItem}>
               <Text style={styles.experienceTitle}>
                 Grupo Guarani — Backend Developer
               </Text>
@@ -368,6 +368,36 @@ export const CVPdf = () => (
                   "Implementé generación de facturas en PDF.",
                   "Trabajé en metodología Agile junto a otro desarrollador.",
                   "Optimicé la interfaz para mejorar la experiencia de usuario.",
+                ].map((item, index) => (
+                  <Text key={index} style={styles.experienceListItem}>
+                    • {item}
+                  </Text>
+                ))}
+              </View>
+            </View> */}
+
+            <View style={styles.experienceItem}>
+              <Text style={styles.experienceTitle}>
+                Centre d'FP Llefià — Técnico de sistemas
+              </Text>
+              <Text style={styles.experienceDate}>
+                Mayo 2022 - Febrero 2023
+              </Text>
+              <Text style={styles.experienceDescription}>
+                Trabajé de forma muy autónoma, guiando a compañeros, también me
+                encargaba de la gestión de incidencias, formateo y configuración
+                de equipos y soporte técnico IT en general.
+              </Text>
+              <View style={styles.experienceList}>
+                {[
+                  "Identificación y resolución de fallos de hardware: procesadores, placas base, BIOS, discos duros, SSD, slots de memoria.",
+                  "Seguridad y cuotas: backups con periféricos y asignación de cuotas de espacio según prioridades.",
+                  "Gestión de permisos en carpetas para evitar modificación o eliminación de datos por usuarios no autorizados.",
+                  "Implementación de directivas: restricciones por rol de usuario (ej. cambio de fondo de pantalla).",
+                  "Gestión de redes: reemplazo de switches y configuración de IPs locales para dispositivos como PLC.",
+                  "Linux — chmod, ls, tail, head, cp, cd, cat, useradd: gestión de permisos, archivos y usuarios.",
+                  "PowerShell — gpupdate /force: actualización de directivas y gestión de usuarios tras instalar Active Directory.",
+                  "Documentación técnica: manuales de instalación, directivas, permisos, cuotas, hardware, software, licencias, XAMPP, WinServer y TiaPortal.",
                 ].map((item, index) => (
                   <Text key={index} style={styles.experienceListItem}>
                     • {item}
