@@ -297,7 +297,7 @@ export const CVPdf = () => (
                 Técnico
               </Text>
               <Text style={styles.experienceDate}>
-                Noviembre 2025 - Presente
+                Noviembre 2025 - Marzo 2026
               </Text>
               <Text style={styles.experienceDescription}>
                 Trabajo como Junior Fullstack Developer y IT Técnico con un
